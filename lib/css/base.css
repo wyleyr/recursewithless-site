@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+    color: orange;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+a:visited {
+    color: orangered;
+}
