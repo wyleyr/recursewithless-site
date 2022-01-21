@@ -37,8 +37,22 @@ function readKey(e) {
         (LINE_BUFFER.length ? "  ⏎ <small>= run</small>" : "");
 }
 
+function getPath() {
+    let node = CURRENT_NODE;
+    let path = "/" + CURRENT_NODE.id;
+    while (node && node.id != "root") {
+        node = node.parentElement;
+        if (node.id) {
+            path = "/" + node.id + path;
+        }
+    }
+
+    return path;
+}
+
 function prompt() {
-    return "rwlsh> ";
+    let path = getPath();
+    return `rwlsh:${path}> `;
 }
 
 function boot() {
