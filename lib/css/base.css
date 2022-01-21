@@ -8,3 +8,13 @@ body {
 a:visited {
     color: orangered;
 }
+
+#terminal {
+    max-height: 30vh;
+}
+#buffer {
+    max-height: 3vh;
+}
+#root {
+    max-height: 67vh;
+}

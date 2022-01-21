@@ -1,6 +1,7 @@
 let TERM = null;
 let BUF = null;
 let LINE_BUFFER = "";
+let CURRENT_NODE = document.getElementById("root");
 
 function print(s) {
     for (i = 0; i < s.length; i++){
@@ -42,7 +43,7 @@ function prompt() {
 
 function boot() {
     // since JS is running, hide the static data:
-    let data = document.getElementById("data");
+    let data = document.getElementById("root");
     data.style.display = "none";
     
     // set up the "terminal":
@@ -103,6 +104,22 @@ function cls(args) {
     TERM.textContent = "";
 }
 
+function cn(args) {
+    const [cmd, ...rest] = args;
+    if (!rest.length) {
+        printLine("What node do you want to change to?");
+        return;
+    }
+
+    let name = rest[0];
+    let newNode = document.getElementById(name);
+    if (newNode) {
+        CURRENT_NODE = newNode;
+    } else {
+        printLine(`I couldn't find the node '${name}' in this document.`);
+    }
+}
+
 function browse(args) {
     const [cmd, ...rest] = args;
     if (!rest.length) {
@@ -147,12 +164,42 @@ function help(args) {
 
 }
 
+function collectChildren(node) {
+    // a node's "children" might not be its direct children in the DOM,
+    // So if there are no immediate named children,
+    // recurse down the DOM until we find a named element.
+    // Returns an object mapping names to TOC descriptions.
+    if (!node || node.childElementCount === 0) return {};
+    
+    let namedChildren = {};
+    for (child of node.children) {
+        if (child.id && child.id.length) {
+            namedChildren[child.id] = child.dataset.tocd;
+        } else {
+            let others = collectChildren(child);
+            namedChildren = {...namedChildren, ...others};
+        }
+    }
+
+    return namedChildren;
+}
+
 function ls(args) {
-    let fs = document.getElementById("fs");
-    let withUrls = fs.querySelectorAll("*[href]");
-    for (i = 0; i < withUrls.length; i++) {
-        node = withUrls[i];
-        printLine(`${i+1}. ${node.textContent}`);
+    const [cmd, ...rest] = args;
+
+    let node = rest.length ? document.getElementById(rest[0]) : CURRENT_NODE;
+    if (node) {
+        let contents = collectChildren(node);
+        for (name in contents) {
+            print(name);
+            if (contents[name]) {
+                print(': ');
+                print(contents[name]);
+            }
+            print('\n');
+        }
+    } else {
+        printLine(`${cmd}: Sorry, I couldn't find node ${rest[0]}`);
     }
 }
 
@@ -170,9 +217,10 @@ function who(args) {
 
 const COMMANDS = {
     cat: { impl: cat, help: ` DOC: display DOC here`, aliases: ['type', 'print']},
+    cn: { impl: cn, help: ` NAME: change to node NAME`, aliases: ['cd']},
     cls: { impl: cls, help: `: clear screen`, aliases: [] },
     echo: { impl: echo, help: ` ARGS: display ARGS`, aliases: ['print']},
-    ls: { impl: ls, help: `: list available documents`, aliases: ['dir']},
+    ls: { impl: ls, help: ` [NAME]: list nodes here [or under NAME]`, aliases: ['dir']},
     help: { impl: help, help: ` [CMD]: display help [on CMD]`, aliases: ['?', '??']},
     open: {impl: browse, help: ` DOC/PORTAL: view DOC/PORTAL in a new tab`, aliases: ['browse', 'view']},
     who: { impl: who, help: `: who am I?`, aliases: ['w', 'finger']},

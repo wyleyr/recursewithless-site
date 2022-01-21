@@ -5,12 +5,12 @@
     <link rel="stylesheet" href="./lib/css/base.css" />
   </head> 
   <body>
-    <div id="data">
-      <nav>
-        <ul id="fs">
+    <div id="root" data-tocd="The root node">
+      <nav id="nav" data-tocd="Navigation links">
+        <ul id="here" data-tocd="Other pages on recursewithless.net">
           <li><a id="about" href="about.txt">about</a></li>
           <li><a id="cv" href="cv.txt">cv</a></li>
-          <li><a href="papers.txt">papers</a></li>
+          <li><a id="papers" href="papers.txt">papers</a></li>
           <li><a href="research.txt">research</a></li>
           <li>teaching</li>
           <li>dissertation</li>
@@ -19,20 +19,19 @@
           <li>portrait</li>
           <li>art</li>
         </ul>
-        <ul id="external">
-          <li><a id="pp" href="https://philpeople.org/profiles/richard-lawrence">pp</a></li>
-          <li><a id="gh" href="https://github.com/wyleyr/">gh</a></li>
-          <li><a id="srht" href="https://git.sr.ht/~wyleyr/">srht</a></li>
-          <li><a id="gemlog" href="gemini://soviet.circumlunar.space/rwl/">gemlog</a></li>
+        <ul id="elsewhere" data-tocd="Where else you can find rwl on the Internet">
+          <li><a id="pp" href="https://philpeople.org/profiles/richard-lawrence">PhilPeople</a></li>
+          <li><a id="gh" href="https://github.com/wyleyr/">GitHub</a></li>
+          <li><a id="srht" href="https://git.sr.ht/~wyleyr/">sr.ht</a></li>
+          <li><a id="gemlog" href="gemini://soviet.circumlunar.space/rwl/">My gemlog</a></li>
         </ul>
       </nav>
-      <address id="author">
+      <address id="author" data-tocd="rwl's contact information">
         Richard W. Lawrence<br>
         <a href="mailto:rwl@recursewithless.net">rwl@recursewithless.net</a><br>
       </address>
     </div>
     <div id="terminal"></div>
-    <div id="display"></div>
     <script src="./tui.js"></script>
   </body>
 </html>
