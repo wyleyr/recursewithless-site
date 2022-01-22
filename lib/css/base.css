@@ -1,20 +1,23 @@
 body {
+    font-family: 'Fira Mono', 'Courier', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+#terminal {
+    overflow-x: hidden;
+    overflow-y: scroll;
     background-color: black;
     color: orange;
     font-weight: bold;
     font-size: 18px;
 }
 
-a:visited {
+#terminal a:visited {
     color: orangered;
 }
 
-#terminal {
-    max-height: 30vh;
-}
-#buffer {
-    max-height: 3vh;
-}
 #root {
-    max-height: 67vh;
+    padding: 1.5em;
 }
+

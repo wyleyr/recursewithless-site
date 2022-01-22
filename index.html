@@ -1,37 +1,99 @@
 <!doctype html>
 <html>
   <head>
-    <title>rwl</title>
+    <title>about</title>
     <link rel="stylesheet" href="./lib/css/base.css" />
   </head> 
   <body>
-    <div id="root" data-tocd="The root node">
+    <div id="root">
       <nav id="nav" data-tocd="Navigation links">
-        <ul id="here" data-tocd="Other pages on recursewithless.net">
-          <li><a id="about" href="about.txt">about</a></li>
-          <li><a id="cv" href="cv.txt">cv</a></li>
-          <li><a id="papers" href="papers.txt">papers</a></li>
-          <li><a href="research.txt">research</a></li>
-          <li>teaching</li>
-          <li>dissertation</li>
-          <li>software</li>
-          <li>latest</li>
-          <li>portrait</li>
-          <li>art</li>
+        <ul>
+          <li><a id="cv" href="cv.html">cv</a></li>
+          <li><a id="papers" href="papers.html">papers</a></li>
+          <li><a href="research.html">research</a></li>
+          <!-- <li>teaching</li> -->
+          <!-- <li>dissertation</li> -->
+          <!-- <li>software</li> -->
+          <!-- <li>latest</li> -->
+          <!-- <li>art</li> -->
         </ul>
-        <ul id="elsewhere" data-tocd="Where else you can find rwl on the Internet">
-          <li><a id="pp" href="https://philpeople.org/profiles/richard-lawrence">PhilPeople</a></li>
-          <li><a id="gh" href="https://github.com/wyleyr/">GitHub</a></li>
-          <li><a id="srht" href="https://git.sr.ht/~wyleyr/">sr.ht</a></li>
-          <li><a id="gemlog" href="gemini://soviet.circumlunar.space/rwl/">My gemlog</a></li>
+        <ul id="elsewhere">
+          <li><a id="pp" href="https://philpeople.org/profiles/richard-lawrence">PhilPeople profile</a></li>
+          <li><a id="gh" href="https://github.com/wyleyr/">GitHub profile</a></li>
+          <li><a id="srht" href="https://git.sr.ht/~wyleyr/">sr.ht profile</a></li>
+          <li><a id="gemlog" href="gemini://soviet.circumlunar.space/rwl/gemlog/index.gmi">My gemlog</a></li>
         </ul>
       </nav>
-      <address id="author" data-tocd="rwl's contact information">
-        Richard W. Lawrence<br>
-        <a href="mailto:rwl@recursewithless.net">rwl@recursewithless.net</a><br>
+      <main id="about" data-tocd="About recursewithless.net">
+        <h1>About</h1>
+        <p>
+          I am rwl, philosopher, programmer, and cobbler of text.
+        </p>
+        <section id="site" data-tocd="about the site">
+          <p>
+            recursewithless.net is a site by and about me.
+            The name is a play on some of my interests in: 
+          </p>
+          <ul>
+            <li>mathematics and logic</li>
+            <li>languages and language</li>
+            <li>computing and programming</li> 
+          </ul>
+          <p>
+            It is also:
+          </p>
+          <ul>
+            <li>a metaphor for postdoctoral existence</li>
+            <li>a backronym for my initials.</li>
+          </ul>
+          <p>
+            Thanks for stopping by!
+          </p>
+        </section>
+        <section id="interface" data-tocd="about this interface">
+          <h2>The interface</h2>
+          <p>
+            If you have JavaScript enabled, you'll see rwlsh, a
+            shell-like interface. It's an experiment in hypertext
+            browsing based on a few ideas:
+          </p>
+          <ul>
+            <li>hierarchical namespace: a document is a tree of named nodes,
+              like a filesystem</li>
+            <li>local position: you are always "at" some node in the
+              tree, and can focus on the local scenery there</li>
+            <li>command language: you change position and take other
+              actions by issuing commands to the shell</li>
+          </ul>
+          <p>
+            If this is your first time using such an interface, try the commands
+            <code>toc</code> (list all the nodes), <code>goto</code>
+            (change your position to a new node),
+            and <code>show</code> (display the contents at your
+            current position). To see more commands, type <code>help</code>. 
+          </p>
+          <p>
+            If you've ever used a Unix or DOS shell, or a text-based
+            adventure game, it should feel familiar. Send me a note if
+            you see a way to improve it!
+          </p>
+          <noscript>
+            <p>
+              If you're seeing <em>this</em> paragraph, then you don't
+              have JavaScript enabled. The site should work fine without
+              it, so please let me know if it doesn't.
+            </p>
+          </noscript>
+        </section>
+        <section id="author" data-tocd="about rwl">
+          <img id="portrait" src="lib/img/selfportrait.png" title="self-portrait">
+          <address id="contact" data-tocd="email, etc.">
+            Richard W. Lawrence<br>
+            <a href="mailto:rwl@recursewithless.net">rwl@recursewithless.net</a><br>
       </address>
+      </main>
     </div>
     <div id="terminal"></div>
-    <script src="./tui.js"></script>
+    <script src="lib/js/tui.js"></script>
   </body>
 </html>
