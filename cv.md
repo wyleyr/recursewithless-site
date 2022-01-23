@@ -25,7 +25,9 @@ Citizenship
 
 05.2007 **BA** *summa cum laude* in Philosophy with Honors (minor in Mathematics), University of Pennsylvania
   
-# Academic Positions {#career data-tocd="academic positions"}
+# Academic {#academic}
+
+## Positions {#positions}
 <pre>
 -------- -------- --------------------------------------------------------
                   **Post-doctoral**
@@ -51,15 +53,18 @@ Citizenship
 -------- -------- --------------------------------------------------------
 </pre>
 
-# Research interests {#research data-tocd="research interests"}
+## Areas {#areas data-tocd="specializations, competences, interests"}
 
 Specializations
-: Philosophy of Mathematics, Language, and Logic
+: philosophy of mathematics, language, and logic
 
-Additional competences 
-: Technology and Ethics, Ancient Philosophy, Philosophy of Biology
+Competences 
+: technology and ethics, mathematical logic, ancient philosophy
+
+Other interests
+: digital media, aesthetics, philosophy of science 
  
-# Technical experience {#tech data-tocd="technical experience"}
+# Technical experience {#technical}
 
 ## Skills {#skills}
 
@@ -67,7 +72,7 @@ Web technologies (HTML, CSS, JavaScript, React, Bootstrap,
 XML, XSLT), Python (Django, Numpy/Scipy), Git, Unix (Debian GNU/Linux,
 others), Databases and SQL (PostgreSQL, SQLite), Emacs and Elisp
 
-## Work history {#work data-tocd="history"}
+## Work history {#work data-tocd="experience in technical positions"}
 
 General and Computational Linguistics, Universität Tübingen
 (<abbr title="full time">FT</abbr>, 06.2019--09.2021)
@@ -108,10 +113,10 @@ Kelly Writers House (PT, Semesters 2003--2007)
 
 ## Open Source Contributions {#foss data-tocd="contributions to free and open source software"}
 
-  - Maintainer and contributor of [metadatatransformation], a Web
+  - Contributor to [metadatatransformation], a Web
     service that converts between metadata formats used by the
     Tübingen Archive of Language Resources
-  - Author and maintainer of [germanet-common], a React library for
+  - Author of [germanet-common], a React library for
     building applications with the GermaNet semantic database
   - Author and maintainer of [ox-linguistics], which provides syntax for
     linguistic examples in Org Mode documents
