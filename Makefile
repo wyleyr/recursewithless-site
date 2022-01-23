@@ -5,7 +5,7 @@ build/lib: lib
 build/index.html: index.html
 	cp index.html build
 
-build/cv.html: cv.md
+build/cv.html: cv.md lib/templates/template.html lib/css/base.css
 	pandoc -f markdown -t html -o build/cv.html \
 		--section-divs \
 		--standalone \
