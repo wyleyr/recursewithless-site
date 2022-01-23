@@ -2,23 +2,22 @@
 title: Curriculum Vitae
 ...
 
-<div id="root">
 # Personal details {#contact data-tocd="personal details"}
 
 Name
 : Richard W. Lawrence
 
 Email
-: rwl@recursewithless.net
+: [rwl@recursewithless.net](mailto:rwl@recursewithless.net){#email}
 
 Web
-: https://recursewithless.net
+: <https://recursewithless.net>{#web}
 
 ORCID
-: https://orcid.org/0000-0001-6633-0246
+: <https://orcid.org/0000-0001-6633-0246>{#orcid}
 
-Languages
-: English (native speaker), German (B2, some teaching experience)
+Citizenship
+: US
 
 # Education {#education}
 
@@ -26,7 +25,7 @@ Languages
 
 05.2007 **BA** *summa cum laude* in Philosophy with Honors (minor in Mathematics), University of Pennsylvania
   
-# Positions {#career data-tocd="academic employment"}
+# Academic Positions {#career data-tocd="academic positions"}
 <pre>
 -------- -------- --------------------------------------------------------
                   **Post-doctoral**
@@ -60,7 +59,78 @@ Specializations
 Additional competences 
 : Technology and Ethics, Ancient Philosophy, Philosophy of Biology
  
-# Publications {#pubs data-tocd="publications"}
+# Technical experience {#tech data-tocd="technical experience"}
+
+## Skills {#skills}
+
+Web technologies (HTML, CSS, JavaScript, React, Bootstrap,
+XML, XSLT), Python (Django, Numpy/Scipy), Git, Unix (Debian GNU/Linux,
+others), Databases and SQL (PostgreSQL, SQLite), Emacs and Elisp
+
+## Work history {#work data-tocd="history"}
+
+General and Computational Linguistics, Universität Tübingen
+(<abbr title="full time">FT</abbr>, 06.2019--09.2021)
+
+  - Created interactive interfaces for linguistic research data
+    (React, Bootstrap, Docker and other modern Web technologies)
+  - Developed metadata transformations to make archived research data
+    discoverable on the Web (HTML, XML, XSLT)
+  - Archived linguistic research data and metadata in collaboration
+    with other researchers
+  - Reduced technical debt and maintenance load for internal database
+    editor (React, Java, Postgres)
+
+Computational Memory Lab, University of Pennsylvania (FT, 07.2008--07.2009)
+
+  - Advanced long-term study of human memory by collecting,
+    manipulating, and analyzing behavioral and EEG data (Matlab,
+    Python, and Unix tools)
+  - Designed and built laboratory information management system
+    (Python, Django)
+  - Trained in psychological research ethics and relevant U.S.
+    regulations
+
+Publishers' Assistant (FT, 09.2007--06.2008)
+
+  - Client-driven Web development (COM and ASP-based technology stack)
+
+Haematologic Technologies, Inc.
+(<abbr title="part time">PT</abbr>, Summers 2003--2006)
+
+  - Supported quality control processes by programming temperature
+    monitor for laboratory freezers (R)
+
+Kelly Writers House (PT, Semesters 2003--2007)
+
+  - Web development and maintenance for literary arts organization
+    (HTML, CSS, PHP) 
+
+## Open Source Contributions {#foss data-tocd="contributions to free and open source software"}
+
+  - Maintainer and contributor of [metadatatransformation], a Web
+    service that converts between metadata formats used by the
+    Tübingen Archive of Language Resources
+  - Author and maintainer of [germanet-common], a React library for
+    building applications with the GermaNet semantic database
+  - Author and maintainer of [ox-linguistics], which provides syntax for
+    linguistic examples in Org Mode documents
+  - Author and maintainer of [schoolutils], a database and CLI for
+    assignments and grades
+  - Contributor of patches, bug reports, and user support to
+    the [Open Logic Project], [evil-mode], [afew], [org-mode], and
+    other open source projects
+
+[metadatatransformation]: https://github.com/SfS-ASCL/metadatatransformation
+[germanet-common]: https://github.com/Germanet-sfs/germanet-common
+[ox-linguistics]: https://github.com/wyleyr/ox-linguistics
+[schoolutils]: https://github.com/wyleyr/schoolutils
+[Open Logic Project]: https://github.com/rzach/forallx-yyc/commits?author=wyleyr
+[evil-mode]: https://github.com/emacs-evil/evil/commits?author=wyleyr
+[afew]: https://github.com/afewmail/afew/commits?author=wyleyr
+[org-mode]: https://code.orgmode.org/bzg/org-mode/commits/master/search?q=richard.lawrence
+
+# Publications {#publications}
 
 ## Peer reviewed journal articles {#articles data-tocd="in peer reviewed journals"}
 
@@ -71,14 +141,14 @@ Lawrence, Richard. 2021. "Frege, Hankel, and Formalism in the
 Lawrence, Richard. 2021. "Giving the value of a variable". Kriterion
 --- Journal of Philosophy 35. <https://doi.org/10.1515/krt-2021-0007>
 
-## Book reviews {#reviews data-tocd="book reviews"}
+## Book reviews {#reviews data-tocd="of books"}
 
 Lawrence, Richard. 2017. "Review of K. Felka, *Talking about Numbers:
 Easy Arguments for Mathematical Realism*." History and Philosophy of
 Logic 38 (4): 390--94. <https://doi.org/10.1080/01445340.2017.1331988>
 
 
-## Conference papers {#proceedings data-tocd="conference papers"}
+## Conference papers {#conf data-tocd="conference papers"}
 
 Hinrichs, Marie, Richard Lawrence and Erhard Hinrichs. 2020. "Exploring
 and visualizing wordnet data with GermaNet Rover". In: Proceedings of
@@ -103,14 +173,6 @@ numbers?". Under review.
 Lawrence, Richard. "Johannes Thomae's formalism and the chess piece analogy".
 Under review.
 
-# Research software {#software data-tocd="research software"}
-
-Lawrence, Richard. 2019 (first release). germanet-common.
-<https://github.com/Germanet-sfs/germanet-common>
-
-Lawrence, Richard and Marie Hinrichs. 2020 (first release). GermaNet Rover.
-<https://weblicht.sfs.uni-tuebingen.de/rover/>
-
 # Fellowships, Awards and Honors (competitive) {#awards data-tocd="fellowships, awards, honors"}
 <pre>
 ------ -------------------------------------------------------------------
@@ -133,9 +195,43 @@ Lawrence, Richard and Marie Hinrichs. 2020 (first release). GermaNet Rover.
 
 ------ -------------------------------------------------------------------
 </pre>
-</div>
 
-<div id="terminal"></div>
-<script src="lib/js/tui.js"></script>
+# Teaching {#teaching data-tocd="as primary instructor"}
+
+### Universität Tübingen {#tuebingen data-tocd="Universität Tübingen"}
+<pre>
+----------------- ---------------------------------------------------------- 
+Summer 2021       Frege und Formalismus<sup>U</sup>                             
+Winter 2020--21   Technology and Ethics                                      
+Summer 2020       Freges *Grundlagen der Arithmetik*<sup>D</sup>            
+Winter 2019--20   Reference to Numbers and Other Abstract Objects<sup>U</sup>   
+----------------- ---------------------------------------------------------- 
+</pre>
+
+<sup>U</sup>: upper-level course
+
+<sup>D</sup>: course taught in German
+
+### University of California, Berkeley {#berkeley data-tocd="University of California, Berkeley"}
+<pre>
+----------------- ----------------------------------------------------------
+Summer 2018       Ancient Philosophy      
+Summer 2015                             
+Summer 2014                             
+                                                                                             
+Summer 2017       Introduction to Logic   
+----------------- ----------------------------------------------------------
+</pre>
+
+Additional teaching experience as Graduate Student Instructor includes
+upper-level courses in Philosophy of Language, Philosophy of
+Mathematics, Aristotle, and Philosophical Methods.
+    
+# Languages {#languages}
+
+- English (native speaker) 
+- German (B2, some teaching experience)
+
+
 
 
