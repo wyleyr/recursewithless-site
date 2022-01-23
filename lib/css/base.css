@@ -13,6 +13,10 @@ body {
     font-size: 18px;
 }
 
+#terminal a {
+    color: orange;
+    text-decoration: underline;
+}
 #terminal a:visited {
     color: orangered;
 }
