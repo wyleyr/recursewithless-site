@@ -14,3 +14,6 @@ build/%.html: %.md lib/templates/template.html lib/css/base.css
 		-o $@ $<
 
 all: build/index.html build/cv.html build/lib
+
+clean:
+	rm -r build/*
