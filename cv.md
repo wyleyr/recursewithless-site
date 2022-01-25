@@ -80,7 +80,7 @@ General and Computational Linguistics, Universität Tübingen
   - Created interactive interfaces for linguistic research data
     (React, Bootstrap, Docker and other modern Web technologies)
   - Developed metadata transformations to make archived research data
-    discoverable on the Web (HTML, XML, XSLT)
+    discoverable on the Web (HTML, CSS, XML, XSLT)
   - Archived linguistic research data and metadata in collaboration
     with other researchers
   - Reduced technical debt and maintenance load for internal database
