@@ -1,6 +1,9 @@
 
-build/lib: lib
-	cp -r lib build
+build/lib: lib/css/base.css lib/js/tui.js lib/img/selfportrait.png
+	mkdir -p build/lib/css build/lib/js build/lib/img && \
+	cp lib/css/base.css build/lib/css && \
+	cp lib/js/tui.js build/lib/js && \
+	cp lib/img/selfportrait.png build/lib/img
 
 build/index.html: index.html
 	cp index.html build
