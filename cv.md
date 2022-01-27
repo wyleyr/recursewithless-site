@@ -178,6 +178,62 @@ numbers?". Under review.
 Lawrence, Richard. "Johannes Thomae's formalism and the chess piece analogy".
 Under review.
 
+
+# Presentations (invited and refereed) {#talks data-tocd="invited and refereed"}
+
+-   December 6, 2021. "Formalism through the eyes of Weierstrass and
+    Thomae". [Logik Cafe](http://logik-cafe.philo.at/), University of
+    Vienna.
+-   November 19, 2021. "Formalism through the eyes of Weierstrass and
+    Thomae". Novembertagung in the History and Philosophy of
+    Mathematics.
+-   July 16, 2021. "Frege and formalism: an apology for Thomae."
+    Society for the Study of the History of Analytical Philosophy,
+    University of Vienna.
+-   December 2, 2020. "Hankel's formalism, Frege's logicism, and the
+    analytic-synthetic distinction." [Carl Friedrich von
+    Weizsäcker-Kolloquium](https://uni-tuebingen.de/de/198526),
+    University of Tübingen.
+-   November 28, 2020. "Hankel's formalism and Frege's logicism."
+    Novembertagung on the History and Philosophy of Mathematics.
+    Humboldt-Universität zu Berlin.
+-   December 12, 2019. "Perspectives in the semantics of variables."
+    University of Vienna.
+-   October 28, 2019. "Frege's arguments against formalism." [Logik
+    Cafe](http://logik-cafe.philo.at/), University of Vienna.
+-   June 13, 2019. "Frege on concepts and objects." Master Class on
+    the Lesser-Known Frege in Kantian Context, Boston University.
+-   May 7, 2019. "Algebraic investigations." Oberseminar am Institut
+    für Philosophie, Friedrich-Alexander-Universität Erlangen-Nürnberg.
+-   January 29, 2019. "Variables and Values in Practice." Workshop in
+    Natural Language Semantics, Freie Universität Berlin.
+-   June 20, 2018. "Frege's epistemological understanding of objects
+    and concepts." [Society for the Study of the History of Analytical
+    Philosophy](http://sshap.org/2018/04/09/sshap-2018-program-and-abstracts/),
+    McMaster University.
+-   April 19, 2017. "Some puzzles about the indefinite article."
+    Society for Linguistics Undergraduate Students, University of
+    California, Berkeley.
+-   March 31, 2017. "Who are the persons, and how many are the
+    numbers?"
+    [Doc'in Nicod](http://www.institutnicod.org/seminaires-colloques/seminaires/doc-in-nicod-898/?lang=fr),
+    Institut Jean Nicod.
+-   February 2, 2017. "Who are the persons, and how many are the
+    numbers?"
+    [SemanticsBabble](http://idiom.ucsd.edu/~ivano/SemBabble/),
+    University of California, San Diego.
+-   December 14, 2016. "Who are the persons, and how many are the
+    numbers?" [Philosophy Graduate Research
+    Colloquium](http://philosophy.berkeley.edu/events/detail/1312),
+    University of California, Berkeley.
+-   August 5, 2016. "Concepts and objects in game-theoretical
+    semantics." [Logic Colloquium
+    2016](http://www.lc2016.leeds.ac.uk/), Association for Symbolic
+    Logic European Summer Meeting, University of Leeds.
+-   December 2, 2014. "Three analyses of specificational sentences."
+    [Meaning Sciences Club](http://yalcin.cc/meaning/), University of
+    California, Berkeley.
+
 # Fellowships, Awards and Honors (competitive) {#awards data-tocd="fellowships, awards, honors"}
 <pre>
 ------ -------------------------------------------------------------------
