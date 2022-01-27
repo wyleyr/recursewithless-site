@@ -18,5 +18,8 @@ build/%.html: %.md lib/templates/template.html lib/css/base.css
 
 all: build/index.html build/cv.html build/lib
 
+preview: all
+	xdg-open build/index.html
+
 clean:
 	rm -r build/*
