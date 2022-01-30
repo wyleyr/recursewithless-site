@@ -25,7 +25,7 @@ Citizenship
 
 05.2007 **BA** *summa cum laude* in Philosophy with Honors (minor in Mathematics), University of Pennsylvania
   
-# Academic {#academic}
+# Academic experience {#academic}
 
 ## Positions {#positions}
 <pre>
