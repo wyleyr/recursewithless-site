@@ -234,6 +234,22 @@ Under review.
     [Meaning Sciences Club](http://yalcin.cc/meaning/), University of
     California, Berkeley.
 
+# Professional service {#service data-tocd="professional service and associations"}
+
+-   Article Referee (*dialectica*, *Dialogue*, *Philosophia
+    Mathematica*, *Philosophical Quarterly*, *Semantics and Pragmatics*,
+    *Synthese*)
+-   Member, [Gesellschaft für analytische Philosophie](https://www.gap-im-netz.de/de/), May 2019--present.
+-   Organizing Committee Member, Novembertagung On the History and
+    Philosophy of Mathematics 2021.
+-   [Contributor](https://github.com/rzach/forallx-yyc/commits?author=wyleyr),
+    *forall $x$ Calgary Remix: An Introduction to Formal Logic*, an open
+    access textbook from the [Open Logic Project](http://openlogicproject.org/)
+-   Member, Berkeley-Stanford Circle in Logic and Philosophy, Fall
+    2014--Spring 2018
+-   Organizer, Berkeley Philosophy Department work-in-progress lunches,
+    Spring 2015
+
 # Fellowships, Awards and Honors (competitive) {#awards data-tocd="fellowships, awards, honors"}
 <pre>
 ------ -------------------------------------------------------------------
