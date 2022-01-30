@@ -8,5 +8,5 @@ Unless otherwise specified, all files in this repository are licensed
 under the [Creative Commons Attribution-ShareAlike 4.0 International
 License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-![CC BY-SA](https://i.creativecommons.org/l/by-sa/4.0/88x31.png){style="border-width:0"}
+![CC BY-SA](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 
