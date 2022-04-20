@@ -148,6 +148,10 @@ Lawrence, Richard. 2021. "Giving the value of a variable". Kriterion
 
 ## Book reviews {#reviews data-tocd="of books"}
 
+Lawrence, Richard. Forthcoming. "Review of K. Hossack, *Knowledge and
+the Philosophy of Number*." History and Philosophy of
+Logic. 
+
 Lawrence, Richard. 2017. "Review of K. Felka, *Talking about Numbers:
 Easy Arguments for Mathematical Realism*." History and Philosophy of
 Logic 38 (4): 390--94. <https://doi.org/10.1080/01445340.2017.1331988>
