@@ -32,7 +32,10 @@ Citizenship
 -------- -------- --------------------------------------------------------
                   **Post-doctoral**
                   
- 10.2021  present IVC Fellow, Institute Vienna Circle, University of Vienna
+          present Principal Investigator, *Frege Among the Formalists*,
+                  FWF ESPRIT Grant, University of Vienna
+
+ 10.2021  03.2022 IVC Fellow, Institute Vienna Circle, University of Vienna
 
  04.2021  09.2021 Post-doctoral researcher, General and Computational Linguistics (65%)
                   and Philosophy (35%), University of Tübingen
