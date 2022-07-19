@@ -30,3 +30,7 @@ body {
     padding: 0;
 }
 #nav li { display: inline-block; }
+
+td {
+    padding: 0.3em;
+}

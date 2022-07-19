@@ -28,7 +28,7 @@ Citizenship
 # Academic experience {#academic}
 
 ## Positions {#positions}
-<pre>
+
 -------- -------- --------------------------------------------------------
                   **Post-doctoral**
                   
@@ -54,7 +54,6 @@ Citizenship
  07.2008  07.2009 Research coordinator, Computational Memory Lab,
                   University of Pennsylvania
 -------- -------- --------------------------------------------------------
-</pre>
 
 ## Areas {#areas data-tocd="specializations, competences, interests"}
 
@@ -193,7 +192,6 @@ numbers?". Under review.
 Lawrence, Richard. "Johannes Thomae's formalism and the chess piece analogy".
 Under review.
 
-
 # Presentations (invited and refereed) {#talks data-tocd="invited and refereed"}
 
 -   December 6, 2021. "Formalism through the eyes of Weierstrass and
@@ -266,7 +264,7 @@ Under review.
     Spring 2015
 
 # Fellowships, Awards and Honors (competitive) {#awards data-tocd="fellowships, awards, honors"}
-<pre>
+
 ------ -------------------------------------------------------------------
   2021 Visiting Research Fellowship, Institute Vienna Circle, 
        University of Vienna
@@ -286,34 +284,36 @@ Under review.
        Pennsylvania
 
 ------ -------------------------------------------------------------------
-</pre>
 
 # Teaching {#teaching data-tocd="as primary instructor"}
 
-### Universität Tübingen {#tuebingen data-tocd="Universität Tübingen"}
-<pre>
+## Universität Tübingen {#tuebingen data-tocd="Universität Tübingen"}
+
 ----------------- ---------------------------------------------------------- 
 Summer 2021       Frege und Formalismus<sup>U</sup>                             
+
 Winter 2020--21   Technology and Ethics                                      
+
 Summer 2020       Freges *Grundlagen der Arithmetik*<sup>D</sup>            
+
 Winter 2019--20   Reference to Numbers and Other Abstract Objects<sup>U</sup>   
 ----------------- ---------------------------------------------------------- 
-</pre>
 
 <sup>U</sup>: upper-level course
 
 <sup>D</sup>: course taught in German
 
-### University of California, Berkeley {#berkeley data-tocd="University of California, Berkeley"}
-<pre>
+## University of California, Berkeley {#berkeley data-tocd="University of California, Berkeley"}
+
 ----------------- ----------------------------------------------------------
 Summer 2018       Ancient Philosophy      
-Summer 2015                             
-Summer 2014                             
-                                                                                             
+
 Summer 2017       Introduction to Logic   
+
+Summer 2015       Ancient Philosophy     
+
+Summer 2014       Ancient Philosophy     
 ----------------- ----------------------------------------------------------
-</pre>
 
 Additional teaching experience as Graduate Student Instructor includes
 upper-level courses in Philosophy of Language, Philosophy of
