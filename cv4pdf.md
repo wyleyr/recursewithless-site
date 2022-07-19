@@ -1,11 +1,18 @@
 ---
-title: Curriculum Vitae
+title: Richard W. Lawrence
+papersize: A4
+geometry: margin=2cm
+linestretch: 1.5
+fontfamily: FiraSans
+fontsize: 11pt
+fontfamilyoptions:
+  - sfdefault
+  - book
+...
+
 ...
 
 # Personal details {#contact data-tocd="personal details"}
-
-Name
-: Richard W. Lawrence
 
 Email
 : [rwl@recursewithless.net](mailto:rwl@recursewithless.net){#email}
@@ -66,6 +73,7 @@ Competences
 Other interests
 : digital media, aesthetics, philosophy of science 
  
+<!--
 # Technical experience {#technical}
 
 ## Skills {#skills}
@@ -136,6 +144,7 @@ Kelly Writers House (PT, Semesters 2003--2007)
 [evil-mode]: https://github.com/emacs-evil/evil/commits?author=wyleyr
 [afew]: https://github.com/afewmail/afew/commits?author=wyleyr
 [org-mode]: https://code.orgmode.org/bzg/org-mode/commits/master/search?q=richard.lawrence
+-->
 
 # Publications {#publications}
 
@@ -167,7 +176,7 @@ CLARIN Annual Conference 2020. Eds. C. Navarretta
 and M. Eskevich. Virtual Edition.
 <http://office.clarin.eu/v/CE-2020-1738-CLARIN2020_ConferenceProceedings.pdf>
 
-## Research software {#software data-tocd="research software"}
+## Research software
 
 Lawrence, Richard. 2019 (first release). germanet-common.
 <https://github.com/Germanet-sfs/germanet-common>
@@ -308,11 +317,11 @@ Winter 2019--20   Reference to Numbers and Other Abstract Objects<sup>U</sup>
 ----------------- ----------------------------------------------------------
 Summer 2018       Ancient Philosophy      
 
-Summer 2017       Introduction to Logic   
-
 Summer 2015       Ancient Philosophy     
 
 Summer 2014       Ancient Philosophy     
+
+Summer 2017       Introduction to Logic   
 ----------------- ----------------------------------------------------------
 
 Additional teaching experience as Graduate Student Instructor includes
