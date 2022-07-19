@@ -16,6 +16,12 @@ build/%.html: %.md lib/templates/template.html lib/css/base.css
 		--css lib/css/base.css \
 		-o $@ $<
 
+build/cv.pdf: cv4pdf.md 
+	pandoc -f markdown+multiline_tables \
+		-t pdf \
+		-o build/cv.pdf \
+		cv4pdf.md 
+
 all: build/index.html build/cv.html build/lib
 
 preview: all
