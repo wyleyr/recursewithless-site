@@ -168,6 +168,14 @@ CLARIN Annual Conference 2020. Eds. C. Navarretta
 and M. Eskevich. Virtual Edition.
 <http://office.clarin.eu/v/CE-2020-1738-CLARIN2020_ConferenceProceedings.pdf>
 
+## Research software {#software data-tocd="research software"}
+
+Lawrence, Richard. 2019 (first release). germanet-common.
+<https://github.com/Germanet-sfs/germanet-common>
+
+Lawrence, Richard and Marie Hinrichs. 2020 (first release). GermaNet Rover.
+<https://weblicht.sfs.uni-tuebingen.de/rover/>
+
 ## Dissertation {#dissertation}
 
 Lawrence, Richard. 2017. *Nominalization, Specification, and
