@@ -10,8 +10,6 @@ fontfamilyoptions:
   - book
 ...
 
-...
-
 # Personal details {#contact data-tocd="personal details"}
 
 Email
