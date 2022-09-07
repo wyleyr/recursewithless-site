@@ -299,18 +299,18 @@ Under review.
 ## Universität Tübingen {#tuebingen data-tocd="Universität Tübingen"}
 
 ----------------- ---------------------------------------------------------- 
-Summer 2021       Frege und Formalismus<sup>U</sup>                             
+Summer 2021       Frege und Formalismus^U^                             
 
 Winter 2020--21   Technology and Ethics                                      
 
-Summer 2020       Freges *Grundlagen der Arithmetik*<sup>D</sup>            
+Summer 2020       Freges *Grundlagen der Arithmetik*^D^            
 
-Winter 2019--20   Reference to Numbers and Other Abstract Objects<sup>U</sup>   
+Winter 2019--20   Reference to Numbers and Other Abstract Objects^U^   
 ----------------- ---------------------------------------------------------- 
 
-<sup>U</sup>: upper-level course
+^U^: upper-level course
 
-<sup>D</sup>: course taught in German
+^D^: course taught in German
 
 ## University of California, Berkeley {#berkeley data-tocd="University of California, Berkeley"}
 
