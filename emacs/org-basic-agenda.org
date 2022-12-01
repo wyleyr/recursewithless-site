@@ -1,0 +1,540 @@
+# -*- mode: Org; -*-
+#+TITLE: Emacs and Org Mode tutorial 
+
+This is a single-file introduction to Emacs and Org mode.
+If you are reading it in Emacs, you are already in Org mode.
+Use the Tab key on a heading (any line that starts with "*") to expand it.
+
+If you are not already reading it in Emacs, here is how to do that:
+  1) Download and install Emacs (see below)
+  2) Run Emacs
+  3) Click the second icon on the toolbar, or File > Open File... on
+     the menu bar, and select this file
+
+* Prerequisites
+
+** Emacs!
+
+Download from https://www.gnu.org/software/emacs/download.html or
+install with your system package manager.
+
+** Org mode!
+
+Included with Emacs, but if you want the latest and greatest version,
+see https://orgmode.org/org.html#Installation
+
+* Very brief introduction to Emacs 
+
+Notation: =C-h r= means hold Control (Strg), press h, release both, then
+press r. =M-x= means hold Alt/option ("Meta"), press x, release both.
+=M-x info= means hold Alt/option, press x, release both, type
+"info", then press Return/Enter.
+
+See [[info:emacs#User Input][emacs#User Input]].
+
+** Getting help
+
+Tutorial: =C-h t= 
+Emacs manual: =C-h r= (read up through "Major Structures of Emacs")
+All manuals: =C-h i= (e.g. [[info:org#Top][Org Mode manual]], [[info:eintr#Top][Emacs Lisp Intro]], [[info:elisp#Top][Elisp manual]])
+Read a function's documentation: =C-h f <name of the function> RET=
+Read a variable's documentation: =C-h v <name of the variable> RET=
+Find out what a key is bound to: =C-h k <key sequence>=
+Find out about keys in current mode: =C-h m=
+Search all manuals: =M-x info-apropos=
+
+When reading a manual:
+  - ], [: next or previous node, descending to child nodes if any
+    (e.g. from section 3.1, [ will take you to section 3.1.1) 
+  - n, p: next or p*revious node at the same level
+    (e.g. from section 3.1, n will take you to section 3.2)
+  - u: move up to parent node
+  - t: move up to top level of manual
+  - m: go to a menu item
+  - i: go to topic listed in the manual's index
+    
+** Customization
+
+Emacs is customized by writing Emacs Lisp (Elisp), Emacs' internal
+programming language. Customizations usually consist of
+  - setting special variables
+  - writing functions and binding them to keys
+
+You can write this code yourself, use Emacs' Customize interface to
+help you, or load code that has been written by other people.
+
+See [[info:emacs#Customization][emacs#Customization]] for more.
+
+*** Writing Elisp code yourself
+
+Learn the basics from the [[info:eintr#Top][Emacs Lisp Intro]] manual. Many examples below.
+
+To test code in the scratch buffer, place the cursor at the end
+of an expression and type =C-x e= to evaluate it.
+
+If you have saved code in a file, you can use the load function to
+load it into Emacs, e.g.
+#+begin_src elisp :tangle no
+  (load "/some/file/in/any/location.el")
+#+end_src
+
+See [[info:elisp#Loading][elisp#Loading]].
+
+*** Using Customize
+
+The Customize interface lists all the variables you can customize
+(grouped by functionality) and helps you change their values.
+
+Example: =M-x customize-group org=
+
+This is a good way to find out what settings are available in a given
+package.
+
+See [[info:emacs#Easy Customization][emacs#Easy Customization]]
+
+*** Installing packages
+
+=M-x list-packages= shows a list of packages you can download and
+install.
+
+Click on a package name to read more information about it, then click
+Install in the help buffer to install it.
+
+If you already know the name of a package you want to install, you can also:
+=M-x package-install <name of package> RET=
+
+See [[info:emacs#Packages][emacs#Packages]]
+
+Packages you might consider installing:
+  - use-package (makes package configuration easy)
+  - a completion framework (vertigo, ivy, helm, others. Makes Emacs
+    *much* more discoverable)
+  - packages for external programs you rely on (e.g. magit for git)
+
+** Init file
+
+Store your customizations in your "init file". This is a file that
+Emacs loads whenever it starts up. It is usually one of:
+  - ~/.emacs.d/init.el
+  - ~/.emacs
+
+See [[info:emacs#Init File][emacs#Init File]]. To find out where Emacs found your init file,
+check the value of the =user-init-file= variable (=C-h v user-init-file RET=).
+
+* Quick start
+
+The rest of this file contains code to create a basic Org mode setup
+for task management.
+
+Type =C-c C-v t= to export this code into a single Elisp file
+(my-org-config.el) in the same directory as this file. You can then
+load this file via =M-x load-file my-org-config.el=. Do this now so
+you can follow the explanations and examples below.
+
+If you make any changes to the settings in the code blocks below,
+simply re-export and re-load the file.
+
+You can load the file every time Emacs starts by adding a line in your
+init file like
+#+begin_src elisp :tangle no
+  (load "/path/to/my-org-config.el")
+#+end_src
+
+* Goal: make a simple system for task capture and review
+
+Org mode contains many features for task management, but they will
+only help you if you're careful about how you use them.
+
+Keep things simple -- don't try to create a perfect system for
+managing your tasks. You'll never create a system that will
+just automatically show you everything you need to be working on
+without further input.
+
+Instead, you should *review* your tasks and schedule regularly, make
+decisions about what to work on, then review again once you've
+completed them. (Aim for about once every week or two, and whenever
+you finish a larger project.)
+
+If you don't review, your task list will just become another burden,
+because deciding what to do from an out-of-date task list is more work
+than using no system at all.
+
+The code below creates a simple task management system you can use to
+help you record and review your tasks. Start with this setup, and add
+to it slowly as you discover how to make Org work for you.
+
+* Basic Org setup
+
+** Agenda files
+
+Org's task management features are based on a set of "agenda files".
+These files contain all your task information; Org presents this
+information to you in different agenda views. 
+
+Tell Org in which directory it should look for your agenda files:
+
+#+begin_src elisp :tangle my-org-config.el
+  (setq org-directory "~/org/") ; or whatever
+#+end_src
+
+Two files will be placed there:
+  - =diary.org=: calendar/appointments, anything that *happens*
+  - =tasks.org=: projects, tasks, anything that needs to *be done*
+
+These will be your /agenda files/.
+#+begin_src elisp :tangle my-org-config.el
+  (setq org-agenda-files
+        (list
+         (file-name-concat org-directory "diary.org") 
+         (file-name-concat org-directory "tasks.org")))
+#+end_src
+
+Why exactly two? It helps with review.
+  - easy to review all, and only, the outstanding TODO items, even
+    without the help of Org agenda
+  - similarly, appointments for a given day are always in a definite
+    place, and you can edit as needed
+
+If one file for tasks gets overwhelming, I recommend splitting it up
+into several files by categories. One helpful way: one file per
+category used to "show your work" (e.g. on your CV, or in grant
+applications: publications, talks, teaching...). This gives you a nice
+easy way to record what you've done.
+
+** Keymap
+
+This sets up a keymap we can use at =C-c o= (for "Org"): 
+#+begin_src elisp :tangle my-org-config.el
+  (defvar my-org-map
+    (make-sparse-keymap)
+    "Keymap to hold user-defined keys for Org mode functions")
+
+  (define-key (current-global-map) (kbd "C-c o") my-org-map)
+#+end_src
+We will bind commands like org-capture and org-agenda in this keymap below.
+
+** Capture setup
+
+We want to be able to record new tasks quickly, in any context --
+whenever you think of them, when a colleague mentions them, etc.
+
+Here's a very basic org-capture setup with templates for tasks and
+appointments. To add more templates for different types of tasks, etc.
+see [[info:org#Capture templates][org#Capture templates]].
+
+Note: the template for appointments here assumes they occur at a
+particular time on a particular date, but Org has a very flexible
+syntax for times. You can easily have multi-day events like
+conferences, recurring events like classes, and so on.
+See [[info:org#Timestamps][org#Timestamps]].
+
+#+begin_src elisp :tangle my-org-config.el
+  (setq org-capture-templates
+    '(("t" "Task, note, project, etc.")
+      ;; capture tasks as top-level headlines with TODO state in tasks.org, like:
+      ;; * TODO Schedule a meeting with PF
+      ("tt" "Task" entry
+       (file "tasks.org")
+       "* TODO %^{Description}\n\n%?")
+
+      ("d" "Diary")
+      ;; capture appointments into a date tree in diary.org, like:
+      ;; * 2022
+      ;; ...
+      ;; ** 2022-11 November
+      ;; ...
+      ;; *** 2022-11-21 Monday
+      ;; **** <2022-11-21 15:00-16:30> Present org-agenda
+      ("da" "Appointment/Event" plain
+       (file+olp+datetree "diary.org")
+       "**** %T %^{Description}"
+       :time-prompt t)))
+#+end_src
+
+We bind =org-capture= to =c= in =my-org-map=:
+
+#+begin_src elisp :tangle my-org-config.el
+  (define-key my-org-map "c" 'org-capture)
+#+end_src
+
+Thus =C-c o c= will call =org-capture= (unless you changed the
+keybinding for my-org-map, above).
+    
+** Jump to today
+
+This creates a command to jump to the entry for a given date (default
+is today) in the diary.org file and binds it to =C-c o d=.
+To jump to another date, pass a prefix argument: =C-u C-c o d=
+
+#+begin_src elisp :tangle my-org-config.el
+  (defvar org-diary-file
+    (file-name-concat org-directory "diary.org")
+    "Location of org-diary file for appointments, etc.")
+
+  (defun org-diary-goto-date (arg)
+    "Open the diary file and go to the entry for today.
+  With a prefix arg, prompt for date."
+    (interactive "P")
+    (find-file org-diary-file)
+    (let* ((today (calendar-current-date))
+           (other (when arg (time-as-calendar-date (org-read-date nil 'to-time))))
+           (target-date (if arg other today)))
+      (org-datetree-find-date-create target-date)))
+
+  (define-key my-org-map "d" 'org-diary-goto-date)
+
+  ;; TODO: this might break if your locale settings use (DAY MONTH YEAR)
+  ;; instead of (MONTH DAY YEAR). There *must* be a built-in Emacs
+  ;; function that handles this but so far I haven't been able to find
+  ;; it... If it breaks for you, switch the 3 and 4 below.
+  (defun time-as-calendar-date (time)
+    "Convert time in Emacs' time format to a calendar date list (MONTH DAY YEAR)"
+    (let ((parsed-time (decode-time time)))
+      (list
+       (nth 4 parsed-time)
+       (nth 3 parsed-time)
+       (nth 5 parsed-time))))
+
+#+end_src
+
+** Task keywords
+
+There are two defaults todo state keywords: TODO, DONE
+Any headline marked with one of these keywords is a task.
+Set the task state of a heading: =C-c C-t=
+
+I suggest adding at least WAITING to mean: the task needs input *from
+someone else*
+
+Here's a setup that adds both WAITING and CANCELED states, and allows
+fast selection of states using one-letter codes:
+#+begin_src elisp :tangle my-org-config.el
+  (setq org-todo-keywords
+      '((sequence "TODO(t)" "|" "DONE(d)")
+        ;; record a timestamp and comment when items are marked waiting:
+        (sequence "WAITING(w@/!)" "|" "CANCELED(c)")))
+#+end_src
+See the documentation of =org-todo-keywords= for more: [[help:org-todo-keywords]]
+
+This changes the WAITING keyword to display in gray, since you usually
+don't want to draw attention to it:
+#+begin_src elisp :tangle my-org-config.el
+  (setq org-todo-keyword-faces '(("WAITING" . "gray")))
+#+end_src
+
+See [[info:org#TODO Items][org#TODO Items]]
+
+** Tags
+
+Set tags on a heading: =C-c C-q=
+The primary reason to do this is so you can *filter your agenda views*.
+This helps with review: you can split up reviews into a specific
+category of tasks by filtering the agenda views using tags.
+
+There are no default tags; you have to create your own system of tags.
+See [[info:org#Tags][org#Tags]]
+
+It can be especially helpful to use tags to
+  - break things into broad categories (e.g. work vs. life, job vs. dissertation)
+  - mark tasks and projects as "active" / "current"
+
+Don't create too many tags; managing tags just creates busywork. Just
+create the tags that will help you find what you want when you're
+looking at the agenda.
+
+Here we create two default tags:
+  - an ACTIVE which we will use to mark projects that are active, so
+    that their tasks show up in the daily agenda
+  - and a "routine" tag for tasks that should be excluded from
+    long-term views
+
+#+begin_src elisp :tangle my-org-config.el
+  (setq org-tag-persistent-alist
+        '(("ACTIVE" . ?A) 
+          ("routine")))
+#+end_src
+
+Note: the variable =org-tag-persistent-alist= contains a set of tags
+used across all Org files. You can also declare per-file tags with a
+"#+TAGS" keyword. See [[info:org#Setting Tags][org#Setting Tags]].
+
+** Scheduling and deadlines
+
+Set a deadline for a task: =C-c C-d=.
+Schedule a start date for a task: =C-c C-s=.
+See [[info:org#Deadlines and Scheduling][org#Deadlines and Scheduling]].
+
+Use these sparingly. *Don't* add a deadline unless there's a real,
+externally-imposed deadline. Only use SCHEDULED when there's a
+definite date when you need to start working on something. (Otherwise
+the agenda becomes overwhelming and it's hard to tell what you really
+/need/ to be working on.)
+
+Instead of using these for self-imposed deadlines, review your tasks
+regularly and use tags to mark tasks as "what I'm working on right now".
+
+** Agenda setup 
+
+The agenda shows you different views of everything recorded in your
+agenda files. There are several built-in views, but the agenda is most
+useful with customization.
+
+See [[info:org#Agenda Views][org#Agenda Views]]
+
+*** Keybinding
+
+We bind the Org agenda dispatcher to =C-c o a=: 
+#+begin_src elisp :tangle my-org-config.el
+  (define-key my-org-map "a" 'org-agenda)
+#+end_src
+
+*** Global TODO list
+
+Open the global TODO list: =C-c o a t= 
+
+Goal here: find what you should be working on next, among all the
+tasks you've recorded. Useful settings for this purpose:
+#+begin_src elisp :tangle my-org-config.el
+  ;; on the global todo list, ignore tasks that are already planned:
+  (setq org-agenda-todo-ignore-scheduled 'future)
+  (setq org-agenda-todo-ignore-deadlines 'future)
+#+end_src
+For others: =M-x customize-group org-agenda-todo-list=
+
+Filter by tag: =/=
+Use "+" to include, "-" to exclude tags.
+Tag filters can be combined: e.g. "+OFFICE-routine".
+See [[info:org#Matching tags and properties][org#Matching tags and properties]].
+
+Filter by TODO state: =N r=, e.g. =3 r= to see WAITING items
+See instructions at top
+
+Follow mode: =F=
+Displays each task in its original context as you scroll through todo list 
+
+Sorting? See variable =org-agenda-sorting-strategy=.
+But sorting is usually not very useful for the global todo list.
+
+*** Some general agenda settings I find useful
+
+Review these and see what makes sense for you:
+#+begin_src elisp :tangle no
+  ;; only include one day by default:
+  (setq org-agenda-span 1)
+  ;; only show deadline reminders 5 days in advance:
+  (setq org-deadline-warning-days 5)
+  ;; ...and only if they are not explicitly SCHEDULED 
+  (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
+  ;; don't show completed tasks in the agenda:
+  (setq org-agenda-skip-deadline-if-done t)
+  ;; limit tags to those explicitly written for the task:
+  (setq org-agenda-show-inherited-tags nil)
+  ;; honor todo-list ignores in tags-todo views too:
+  (setq org-agenda-tags-todo-honor-ignore-options t)
+  ;; only show the first repeat of a repeated task:
+  (setq org-agenda-show-future-repeats 'next)
+  ;; do not use bold for upcoming deadlines:
+  (set-face-bold 'org-upcoming-deadline nil)
+#+end_src
+
+For other possible customizations, try =M-x customize-group org-agenda=
+
+*** Daily agenda
+
+Daily agenda should answer two questions:
+  - what part of my day is already planned?
+  - what should I be working on today during unplanned work time?
+  
+Should show:
+  - appointments
+  - tasks with an upcoming deadline 
+  - tasks which are scheduled
+  - tasks which are current
+
+Things to consider:
+  - I like to limit tasks with deadlines to those in the next 7 days
+  - anything scheduled in the future is ignored
+  - anything WAITING is ignored
+
+#+begin_src elisp :tangle my-org-config.el
+  (setq my-org-agenda-daily-view
+        '(;; the daily view, which combines an agenda showing
+          ;; appointments, scheduled items, and upcoming deadlines, and a
+          ;; todo list of tasks in projects marked ACTIVE
+          ("." "Today"
+           ((agenda "" ((org-deadline-warning-days 7)))
+            (tags-todo "ACTIVE"
+                       ((org-agenda-overriding-header "Tasks in active projects")))))))
+#+end_src
+
+*** Longer term calendar
+
+Overview of deadlines coming up in the next week, month, semester.
+Should answer questions like:
+  - how busy will I be around this date?
+  - how much time do I need to start working on this task before its deadline? 
+
+Exclude things like:
+  - routine/repeating tasks
+  - anything that doesn't have a specific schedule
+
+#+begin_src elisp :tangle my-org-config.el
+  (setq my-org-agenda-calendar-views
+        ;; calendar views show an agenda for longer periods
+        '(("c" . "Calendar") 
+          ("cw" "Week (excludes routine tasks)" agenda ""
+           ((org-agenda-span 'week)
+            ;; note: in agenda commands, we have to do tag filters
+            ;; like this, rather than in the third parameter; this is
+            ;; a weird exception, but it is indeed documented so it's
+            ;; not a bug
+            (org-agenda-tag-filter-preset '("-routine")) 
+            (org-deadline-warning-days 0)))
+          ("cm" "Month (excludes routine tasks)"  agenda ""
+           ((org-agenda-span 'month)
+            (org-agenda-tag-filter-preset '("-routine"))
+            (org-deadline-warning-days 0)))))
+#+end_src
+
+*** Other custom TODO lists
+
+Other views you might want to create because they are helpful for review:
+  - Tasks in active projects (what are all the things I should be
+    working on right now?)
+  - Active projects themselves (so you can easily untag them if they
+    are no longer active)
+    
+#+begin_src elisp :tangle my-org-config.el
+  (setq my-org-agenda-review-views
+        ;; custom views for review:
+        '(("%" . "Review")
+          ("%a" "Tasks in active projects" tags-todo "ACTIVE")
+          ("%A" "Active projects" tags "ACTIVE"
+           ;; limit to headings with the tag, not their children:
+           ((org-use-tag-inheritance nil)))))
+#+end_src
+
+*** Combine the custom agenda commands
+
+This uses the values of the variables defined above to set
+=org-agenda-custom-commands=, which makes these custom views available
+when you call =org-agenda=:
+#+begin_src elisp :tangle my-org-config.el
+    (setq org-agenda-custom-commands
+          (append my-org-agenda-daily-view
+                  my-org-agenda-calendar-views
+                  my-org-agenda-review-views))
+#+end_src
+
+See [[info:org#Custom Agenda Views][org#Custom Agenda Views]]
+
+** Working in the agenda
+
+Change a TODO state: =t=
+Change tags: =C-c C-q= 
+Follow mode: =F=  
+Schedule a task: =C-c C-s=
+Set a deadline on a task: =C-c C-d=
+
+There are many other things you can do; see [[info:org#Agenda Views][org#Agenda Views]]
+
