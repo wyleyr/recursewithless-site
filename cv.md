@@ -8,7 +8,7 @@ Name
 : Richard W. Lawrence
 
 Email
-: [rwl@recursewithless.net](mailto:rwl@recursewithless.net){#email}
+: rwl 🜁 recursewithless.net 
 
 Web
 : <https://recursewithless.net>{#web}
