@@ -189,11 +189,24 @@ Mikkelsen (outside member, Linguistics).
 Lawrence, Richard. "Who are the persons, and how many are the
 numbers?". Under review.
 
-Lawrence, Richard. "Johannes Thomae's formalism and the chess piece analogy".
+Lawrence, Richard. "Mathmatical formalism: shifting perspectives".
 Under review.
 
 # Presentations (invited and refereed) {#talks data-tocd="invited and refereed"}
 
+-   December 5, 2022. "Olga Hahn and the coefficients of a logical equation".
+    [Logik Cafe](http://logik-cafe.philo.at/), University of Vienna.
+-   November 18, 2022. "Signs, rules, meaning, and the chess analogy".
+    [Vienna Language and Mind Group](https://sites.google.com/view/ceuniwien/),
+    University of Vienna.
+-   November 14, 2022. "Signs and content in early mathematical
+    formalism". [Department of Logic](https://www.flu.cas.cz/en/about-us/scientific-units/428-department-of-logic), Czech Academy of Sciences. 
+-   September 15, 2022. "The chess analogy in its historical context".
+    [Gesellschaft für Analytische Philosophie](https://gap11.de/),
+    Humboldt University Berlin.
+-   August 24, 2022. "The chess analogy in its historical context".
+    [TiLPS History of Analytic Philosophy
+    Workshop](https://thapw2022.wordpress.com/), Tilburg University.
 -   December 6, 2021. "Formalism through the eyes of Weierstrass and
     Thomae". [Logik Cafe](http://logik-cafe.philo.at/), University of
     Vienna.
