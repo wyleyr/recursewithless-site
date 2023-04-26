@@ -24,7 +24,7 @@ build/cv.pdf: cv4pdf.md
 build/emacs: emacs
 	cp -r emacs build
 
-all: build/index.html build/cv.html build/photos.html build/emacs.html build/emacs build/lib
+all: build/index.html build/cv.html build/photos.html build/emacs.html build/emacs build/lib build/cv.pdf
 
 preview: all
 	xdg-open build/index.html
