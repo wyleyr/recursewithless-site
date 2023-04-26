@@ -272,6 +272,8 @@ and their Relation to the Theory of Valid Inference". Under review.
 -   Article Referee (*dialectica*, *Dialogue*, *Philosophia
     Mathematica*, *Philosophical Quarterly*, *Semantics and Pragmatics*,
     *Synthese*)
+-   Member, [European Society for the Philosophy of
+    Mathematics](https://philmath.eu/), April 2023--present.
 -   Member, [Gesellschaft für analytische Philosophie](https://www.gap-im-netz.de/de/), May 2019--present.
 -   Organizing Committee Member, Novembertagung On the History and
     Philosophy of Mathematics 2021.
