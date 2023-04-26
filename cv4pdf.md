@@ -66,10 +66,10 @@ Specializations
 : philosophy of mathematics, language, and logic
 
 Competences 
-: technology and ethics, mathematical logic, ancient philosophy
+: technology and ethics, mathematical logic, philosophy of science, ancient philosophy
 
 Other interests
-: digital media, aesthetics, philosophy of science 
+: digital media, aesthetics, political philosophy
  
 <!--
 # Technical experience {#technical}
@@ -148,6 +148,9 @@ Kelly Writers House (PT, Semesters 2003--2007)
 
 ## Peer reviewed journal articles {#articles data-tocd="in peer reviewed journals"}
 
+Lawrence, Richard. Forthcoming. "Frege, Thomae, and Formalism:
+Shifting Perspectives". Journal for the History of Analytical Philosophy. 
+
 Lawrence, Richard. 2021. "Frege, Hankel, and Formalism in the
 *Foundations*". Journal for the History of Analytical Philosophy 9 (11)
 5--27. <https://doi.org/10.15173/jhap.v9i11.5007>
@@ -196,13 +199,17 @@ Mikkelsen (outside member, Linguistics).
 Lawrence, Richard. "Who are the persons, and how many are the
 numbers?". Under review.
 
-Lawrence, Richard. Lawrence, Richard. "Mathmatical formalism: shifting
-perspectives". Under review.
+Lawrence, Richard and Justin Vlasits. Translators Introduction and
+Translation of Olga Hahn, "On the Coefficients of a Logical Equation
+and their Relation to the Theory of Valid Inference". Under review.
 
 # Presentations (invited and refereed) {#talks data-tocd="invited and refereed"}
 
+-   February 16, 2023. "Kant's theory of signs and Hilbert's formalism".
+    [The Formal Turn in 20th Century Thought](https://formalism.phl.univie.ac.at/events/international-conference-the-formal-turn-in-twentieth-century-thought/),
+    University of Vienna.
 -   December 5, 2022. "Olga Hahn and the coefficients of a logical equation".
-    [Logik Cafe](http://logik-cafe.philo.at/), University of Vienna.
+    [Logik Café](http://logik-cafe.philo.at/), University of Vienna.
 -   November 18, 2022. "Signs, rules, meaning, and the chess analogy".
     [Vienna Language and Mind Group](https://sites.google.com/view/ceuniwien/),
     University of Vienna.
@@ -215,7 +222,7 @@ perspectives". Under review.
     [TiLPS History of Analytic Philosophy
     Workshop](https://thapw2022.wordpress.com/), Tilburg University.
 -   December 6, 2021. "Formalism through the eyes of Weierstrass and
-    Thomae". [Logik Cafe](http://logik-cafe.philo.at/), University of
+    Thomae". [Logik Café](http://logik-cafe.philo.at/), University of
     Vienna.
 -   November 19, 2021. "Formalism through the eyes of Weierstrass and
     Thomae". Novembertagung in the History and Philosophy of
@@ -233,7 +240,7 @@ perspectives". Under review.
 -   December 12, 2019. "Perspectives in the semantics of variables."
     University of Vienna.
 -   October 28, 2019. "Frege's arguments against formalism." [Logik
-    Cafe](http://logik-cafe.philo.at/), University of Vienna.
+    Café](http://logik-cafe.philo.at/), University of Vienna.
 -   June 13, 2019. "Frege on concepts and objects." Master Class on
     the Lesser-Known Frege in Kantian Context, Boston University.
 -   May 7, 2019. "Algebraic investigations." Oberseminar am Institut
@@ -307,6 +314,15 @@ perspectives". Under review.
 
 # Teaching {#teaching data-tocd="as primary instructor"}
 
+^U^: upper-level course   ^D^: course taught in German
+
+## Universität Wien {#vienna data-tocd="Universität Wien"}
+
+----------------- ---------------------------------------------------------- 
+Summer 2023       Philosophy of Science^U^                             
+
+----------------- ---------------------------------------------------------- 
+
 ## Universität Tübingen {#tuebingen data-tocd="Universität Tübingen"}
 
 ----------------- ---------------------------------------------------------- 
@@ -319,9 +335,6 @@ Summer 2020       Freges *Grundlagen der Arithmetik*^D^
 Winter 2019--20   Reference to Numbers and Other Abstract Objects^U^   
 ----------------- ---------------------------------------------------------- 
 
-^U^: upper-level course
-
-^D^: course taught in German
 
 ## University of California, Berkeley {#berkeley data-tocd="University of California, Berkeley"}
 
