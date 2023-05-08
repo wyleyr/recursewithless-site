@@ -148,8 +148,9 @@ Kelly Writers House (PT, Semesters 2003--2007)
 
 ## Peer reviewed journal articles {#articles data-tocd="in peer reviewed journals"}
 
-Lawrence, Richard. Forthcoming. "Frege, Thomae, and Formalism:
-Shifting Perspectives". Journal for the History of Analytical Philosophy. 
+Lawrence, Richard. 2023. "Frege, Thomae, and Formalism:
+Shifting Perspectives". Journal for the History of Analytical
+Philosophy 11 (2) 1--23. <https://doi.org/10.15173/jhap.v11i2.5366>
 
 Lawrence, Richard. 2021. "Frege, Hankel, and Formalism in the
 *Foundations*". Journal for the History of Analytical Philosophy 9 (11)
