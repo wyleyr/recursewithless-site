@@ -171,6 +171,13 @@ CLARIN Annual Conference 2020. Eds. C. Navarretta
 and M. Eskevich. Virtual Edition.
 <http://office.clarin.eu/v/CE-2020-1738-CLARIN2020_ConferenceProceedings.pdf>
 
+## Translations and digital editions
+
+Hankel, Hermann. 1867/2023. Lectures on Complex Numbers and their Functions. 
+Translated by Richard Lawrence.
+[Current version](https://wyleyr.github.io/hankel1867tr/)
+[Source code](https://github.com/wyleyr/hankel1867tr)
+
 ## Research software {#software data-tocd="research software"}
 
 Lawrence, Richard. 2019 (first release). germanet-common.
