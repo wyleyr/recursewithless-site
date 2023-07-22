@@ -8,7 +8,7 @@ Name
 : Richard W. Lawrence
 
 Email
-: rwl 🜁 recursewithless.net 
+: rwl + [the usual commercial accounting symbol](https://en.wikipedia.org/wiki/At_sign) + recursewithless.net 
 
 Web
 : <https://recursewithless.net>{#web}
