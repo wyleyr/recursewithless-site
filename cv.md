@@ -177,6 +177,7 @@ Hankel, Hermann. 1867/2023. Lectures on Complex Numbers and their Functions.
 Translated by Richard Lawrence.
 [Current version](https://wyleyr.github.io/hankel1867tr/)
 [Source code](https://github.com/wyleyr/hankel1867tr)
+[Latest release](https://doi.org/10.5281/zenodo.8016825)
 
 ## Research software {#software data-tocd="research software"}
 
