@@ -184,6 +184,7 @@ Hankel, Hermann. 1867/2023. Lectures on Complex Numbers and their Functions.
 Translated by Richard Lawrence.
 [Current version](https://wyleyr.github.io/hankel1867tr/)
 [Source code](https://github.com/wyleyr/hankel1867tr)
+[Latest release](https://doi.org/10.5281/zenodo.8016825)
 
 ## Research software
 
@@ -213,6 +214,13 @@ and their Relation to the Theory of Valid Inference". Under review.
 
 # Presentations (invited and refereed) {#talks data-tocd="invited and refereed"}
 
+-   July 14, 2023. "Frege, Formalism and the Kantian Legacy".
+    [Society for the Study of the History of Analytical
+    Philosophy](http://sshap.org/2023/06/sshap-2023-in-berlin/),
+    Humboldt University Berlin. 
+-   July 11, 2023. "Frege, Formalism and the Kantian Legacy".
+    [Frege and the Emergence of Formalism](https://philosophie.univie.ac.at/news-events/nachrichten-news-events/detailansicht-news-events/news/international-workshop-frege-and-the-emergence-of-formalism/),
+    University of Vienna. 
 -   February 16, 2023. "Kant's theory of signs and Hilbert's formalism".
     [The Formal Turn in 20th Century Thought](https://formalism.phl.univie.ac.at/events/international-conference-the-formal-turn-in-twentieth-century-thought/),
     University of Vienna.
