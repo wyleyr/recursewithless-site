@@ -180,7 +180,8 @@ and M. Eskevich. Virtual Edition.
 
 ## Translations and digital editions
 
-Hankel, Hermann. 1867/2023. Lectures on Complex Numbers and their Functions. 
+Hankel, Hermann. 1867/2023. Lectures on Complex Numbers and their
+Functions, Part I: Theory of Complex Number Systems. 
 Translated by Richard Lawrence.
 [Current version](https://wyleyr.github.io/hankel1867tr/)
 [Source code](https://github.com/wyleyr/hankel1867tr)
