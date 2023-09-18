@@ -4,7 +4,7 @@ title: Photos
 
 # Photos
 
-![In which I visit Frege's student apartment](./lib/img/FregesWohnung.jpg)
+![In which I visit Frege's student apartment](./lib/img/FregesWohnung.jpg){#frege}
 
 ![In which I consider the Liar as theater](./lib/img/LiarParadox.jpg){#liar}
 
