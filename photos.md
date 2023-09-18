@@ -4,6 +4,8 @@ title: Photos
 
 # Photos
 
+![In which I am skeptical of an alternative careerpath](./lib/img/ThinkTank.jpg){#think}
+
 ![In which I visit Frege's student apartment](./lib/img/FregesWohnung.jpg){#frege}
 
 ![In which I consider the Liar as theater](./lib/img/LiarParadox.jpg){#liar}
