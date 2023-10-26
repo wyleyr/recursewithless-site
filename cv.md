@@ -208,6 +208,10 @@ and their Relation to the Theory of Valid Inference". Under review.
 
 # Presentations (invited and refereed) {#talks data-tocd="invited and refereed"}
 
+-   October 23, 2023. "Frege vs. the formalists on content and
+    applications of arithmetic".
+    [Lisbon Workshop on the History of Logic](https://cfcul.ciencias.ulisboa.pt/reunioes/lisbon-workshop-on-the-history-of-logic/),
+    University of Lisbon.
 -   July 14, 2023. "Frege, Formalism and the Kantian Legacy".
     [Society for the Study of the History of Analytical
     Philosophy](http://sshap.org/2023/06/sshap-2023-in-berlin/),
