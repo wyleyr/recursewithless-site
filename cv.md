@@ -336,6 +336,8 @@ and their Relation to the Theory of Valid Inference". Under review.
 
 ## Universität Wien {#vienna data-tocd="Universität Wien"}
 ----------------- ---------------------------------------------------------- 
+Winter 2023--24   Frege's Philosophy of Language<sup>U</sup>                    
+
 Summer 2023       Philosophy of Science<sup>U</sup>                             
 ----------------- ---------------------------------------------------------- 
 
