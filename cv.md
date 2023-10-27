@@ -171,7 +171,7 @@ CLARIN Annual Conference 2020. Eds. C. Navarretta
 and M. Eskevich. Virtual Edition.
 <http://office.clarin.eu/v/CE-2020-1738-CLARIN2020_ConferenceProceedings.pdf>
 
-## Translations and digital editions
+## Translations and digital editions {#trde data-tocd="translations and digital editions"}
 
 Hankel, Hermann. 1867/2023. Lectures on Complex Numbers and their
 Functions, Part I: Theory of Complex Number Systems. 
