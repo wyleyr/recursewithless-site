@@ -4,13 +4,21 @@ body {
     padding: 0;
 }
 
+#ui {
+    display: none; /* switched on in boot() */
+    width: 100vw;
+    height: 100vh;
+}
+
 #terminal {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     overflow-y: scroll;
     background-color: black;
     color: orange;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
+    width: calc(40% - 3em);
+    padding: 1.5em;
 }
 
 #terminal a {
@@ -19,6 +27,13 @@ body {
 }
 #terminal a:visited {
     color: orangered;
+}
+
+#display {
+    width: calc(60% - 3em);
+    padding: 1.5em;
+    /* overflow-x: hidden; */
+    overflow-y: scroll;
 }
 
 #root {
