@@ -161,7 +161,7 @@ Lawrence, Richard. 2021. "Giving the value of a variable". Kriterion
 
 ## Book reviews {#reviews data-tocd="of books"}
 
-Lawrence, Richard. Forthcoming. "Review of K. Hossack, *Knowledge and
+Lawrence, Richard. 2022. "Review of K. Hossack, *Knowledge and
 the Philosophy of Number*." History and Philosophy of
 Logic. <https://doi.org/10.1080/01445340.2022.2080373>
 
