@@ -213,6 +213,9 @@ Lawrence, Richard and Justin Vlasits. Translators Introduction and
 Translation of Olga Hahn, "On the Coefficients of a Logical Equation
 and their Relation to the Theory of Valid Inference". Under review.
 
+Lawrence, Richard. "Kant's Prize Essay and Nineteenth Century
+Formalism." Under review.
+
 # Presentations (invited and refereed) {#talks data-tocd="invited and refereed"}
 
 -   October 23, 2023. "Frege vs. the formalists on content and
