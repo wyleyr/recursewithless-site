@@ -7,14 +7,13 @@ body {
 #ui {
     display: none; /* switched on in boot() */
     width: 100vw;
-    height: 100vh;
 }
 
 #terminal {
     /* overflow-x: hidden; */
     overflow-y: scroll;
     background-color: black;
-    color: orange;
+    color: white;
     font-weight: bold;
     font-size: 14px;
     width: calc(40% - 3em);
