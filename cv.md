@@ -1,6 +1,6 @@
 ---
 title: Curriculum Vitae
-motp: First time here? Try 'skills', 'publications', 'toc'.
+motp: First time here? Try 'skills', 'publications', or 'toc'.
 ...
 
 # Personal details {#contact data-tocd="personal details"}
