@@ -1,5 +1,6 @@
 ---
 title: Photos
+motp: of and/or by rwl. Try 'think'.
 ...
 
 # Photos

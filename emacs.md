@@ -1,5 +1,6 @@
 ---
 title: Emacs 
+motp: Want more? Use 'mail' to let me know!
 ...
 
 # Emacs
