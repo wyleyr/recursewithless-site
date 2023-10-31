@@ -3,7 +3,9 @@ body {
     margin: 0;
     padding: 0;
 }
-
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.2em; }
 #ui {
     display: none; /* switched on in boot() */
     width: 100vw;
