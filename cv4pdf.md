@@ -218,6 +218,10 @@ Formalism." Under review.
 
 # Presentations (invited and refereed) {#talks data-tocd="invited and refereed"}
 
+-   December 4, 2023. "Hankel on formal mathematics and its applications".
+    [From Permanence to Conservativity: Metatheoretic ideals in early
+    formalism](https://formalism.phl.univie.ac.at/events/workshop/),
+    University of Vienna.
 -   October 23, 2023. "Frege vs. the formalists on content and
     applications of arithmetic".
     [Lisbon Workshop on the History of Logic](https://cfcul.ciencias.ulisboa.pt/reunioes/lisbon-workshop-on-the-history-of-logic/),
