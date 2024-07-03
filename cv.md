@@ -140,7 +140,16 @@ Kelly Writers House (PT, Semesters 2003--2007)
 
 # Publications {#publications}
 
-## Peer reviewed journal articles {#articles data-tocd="in peer reviewed journals"}
+## Peer reviewed articles {#articles data-tocd="in peer reviewed journals and edited volumes"}
+
+Lawrence, Richard and Justin Vlasits. Forthcoming. Translators'
+Introduction and Translation of Olga Hahn, "On the Coefficients of a
+Logical Equation and their Relation to the Theory of Valid Inference".
+In: Aristotle's Organon in Old and New Logic. Eds. Colin King and
+Venanzio Raspa. Bloomsbury.
+
+Lawrence, Richard. Forthcoming. "Kant's Prize Essay and Nineteenth
+Century Formalism". Kant Yearbook.
 
 Lawrence, Richard. 2023. "Frege, Thomae, and Formalism:
 Shifting Perspectives". Journal for the History of Analytical
@@ -202,13 +211,6 @@ Mikkelsen (outside member, Linguistics).
 
 Lawrence, Richard. "Who are the persons, and how many are the
 numbers?". Under review.
-
-Lawrence, Richard and Justin Vlasits. Translators Introduction and
-Translation of Olga Hahn, "On the Coefficients of a Logical Equation
-and their Relation to the Theory of Valid Inference". Under review.
-
-Lawrence, Richard. "Kant's Prize Essay and Nineteenth Century
-Formalism." Under review.
 
 # Presentations (invited and refereed) {#talks data-tocd="invited and refereed"}
 
