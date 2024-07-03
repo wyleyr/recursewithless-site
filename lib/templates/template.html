@@ -17,6 +17,7 @@ $if(description-meta)$
   <meta name="description" content="$description-meta$" />
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <link rel="stylesheet" href="/lib/css/base.css" />
 $for(css)$
   <link rel="stylesheet" href="$css$" />
 $endfor$
@@ -34,13 +35,15 @@ $endfor$
   <nav id="nav" data-tocd="links">
     <ul id="here" data-tocd="pages on recursewithless.net">
       <li><a id="cv.page" data-tocd="curriculum vitae"
-             href="cv.html">cv</a></li>
+             href="/cv.html">cv</a></li>
       <li><a id="photos.page" data-tocd="for your viewing pleasure"
-             href="photos.html">photos</a></li>
+             href="/photos.html">photos</a></li>
+      <li><a id="projects.page" data-tocd="things which are not work"
+             href="/projects/index.html">projects</a></li>
       <li><a id="emacs.page" data-tocd="tutorials, etc."
-             href="emacs.html">emacs</a></li>
+             href="/emacs.html">emacs</a></li>
       <li><a id="home.page" data-tocd="back to start"
-             href="index.html">home</a></li>
+             href="/index.html">home</a></li>
     </ul>
     <ul id="elsewhere">
       <li><a id="philpeople" data-tocd="rwl @ PhilPeople"
@@ -66,6 +69,6 @@ $endfor$
   </div>
 
   <script id="motp" type="text/plain">$motp$</script>
-  <script src="lib/js/tui.js"></script>
+  <script src="/lib/js/tui.js"></script>
 </body>
 </html>
