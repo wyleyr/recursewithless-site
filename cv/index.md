@@ -1,7 +1,10 @@
 ---
 title: Curriculum Vitae
-motp: First time here? Try 'skills', 'publications', or 'toc'.
+motp: First time here? Try 'skills', 'publications', or 'toc'.\
+ <br>For a PDF version, use 'pdf'.
 ...
+
+Or see my [CV as a pdf](./cv.pdf){#pdf}
 
 # Personal details {#contact data-tocd="personal details"}
 

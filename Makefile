@@ -3,6 +3,7 @@ all: 	build/index.html \
 	$(addprefix build/, $(wildcard lib/js/*.js)) \
 	$(addprefix build/, $(wildcard lib/img/*)) \
 	build/cv/index.html \
+	build/cv/cv.pdf \
 	build/photos/index.html \
 	$(addprefix build/, $(wildcard photos/*.jpg)) \
 	build/projects/index.html \
@@ -10,7 +11,6 @@ all: 	build/index.html \
 	$(addprefix build/, $(wildcard projects/img/chairs/*)) \
 	build/emacs/index.html \
 	$(addprefix build/, $(wildcard emacs/*.org))
-# 	build/cv.pdf # TODO: doesn't build yet on ohm...font issue
 
 %.html: %.md lib/templates/template.html lib/css/base.css
 	pandoc -f markdown+multiline_tables+implicit_figures+link_attributes+raw_html -t html \
