@@ -1,33 +1,33 @@
+all: 	build/index.html \
+	$(addprefix build/, $(wildcard lib/css/*.css)) \
+	$(addprefix build/, $(wildcard lib/js/*.js)) \
+	$(addprefix build/, $(wildcard lib/img/*)) \
+	build/cv.html \
+	build/photos.html \
+	build/projects/index.html \
+	build/projects/chairs-restoration.html \
+	$(addprefix build/, $(wildcard projects/img/chairs/*)) \
+	build/emacs.html \
+	build/emacs/* 
+# 	build/cv.pdf # TODO: doesn't build yet on ohm...font issue
 
-build/lib: lib
-	cp -r lib/css build/lib && \
-	cp -r lib/js build/lib && \
-	cp -r lib/img build/lib 
-
-build/index.html: index.html
-	cp index.html build
-
-build/%.html: %.md lib/templates/template.html lib/css/base.css
-	pandoc -f markdown+multiline_tables+implicit_figures+link_attributes -t html \
+%.html: %.md lib/templates/template.html lib/css/base.css
+	pandoc -f markdown+multiline_tables+implicit_figures+link_attributes+raw_html -t html \
 		--section-divs \
 		--standalone \
 		--template lib/templates/template.html \
-		--css lib/css/base.css \
 		-o $@ $<
 
-build/cv.pdf: cv4pdf.md 
+cv.pdf: cv4pdf.md 
 	pandoc -f markdown+multiline_tables \
 		-t pdf \
-		-o build/cv.pdf \
+		-o cv.pdf \
 		cv4pdf.md 
 
-build/emacs: emacs
-	cp -r emacs build
+build/%: %
+	mkdir -p $(@D) 
+	cp $< $@ 
 
-all: build/index.html build/cv.html build/photos.html build/emacs.html build/emacs build/lib build/cv.pdf
-
-preview: all
-	xdg-open build/index.html
 
 clean:
 	rm -r build/*
