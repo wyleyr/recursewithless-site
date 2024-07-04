@@ -4,7 +4,7 @@ motp: Welcome! This is the rwl shell, a rather wearisome loop.\
  <br>First time here? Try 'toc', 'nav', or 'show'.
 ---
 
-# About {#about data-tocd="About recursewithless.net"}
+# About {#about}
 
 ## Me {#author tocd="about rwl"}
 
@@ -19,9 +19,24 @@ rwl + [the usual commercial accounting
 symbol](https://en.wikipedia.org/wiki/At_sign) + recursewithless.net
 </address>
 
-## The name {#name data-tocd="about the name"}
+### Others {#others data-tocd="people who I am not"}
 
-The name "recursewithless.net" is a play on some of my interests in:
+Despite my name, please don't confuse me with:
+
+- [Richard Lawrence, failed assassin](https://en.wikipedia.org/wiki/Richard_Lawrence_(failed_assassin))
+- [Richard Lawrence, fallen Vietnam soldier](http://1-22infantry.org/kia/lawrencepers.htm)
+- [Richard Lawrence, "Britain's leading authority on the paranormal and psychic
+  healer"](http://jerrypippin.com/Paranormal_Richard_Lawrence.htm)
+  (though please do peruse [this review of his book *UFOs and the
+  Extraterrestrial Message*](https://www.darkstar1.co.uk/ufosmessage.htm))
+- or even [Richard Lawrence, Vermont representative](https://legislature.vermont.gov/people/single/2018.1/14570), although he was from my home state
+  
+or with any of [these notable people](https://en.wikipedia.org/wiki/Richard_Lawrence). The 'w' is important.
+  
+
+## The domain {#domain data-tocd="about 'recursewithless.net'"}
+
+The domain name "recursewithless.net" is a play on some of my interests in:
 
 -   mathematics and logic
 -   languages and language
@@ -32,10 +47,16 @@ It is also:
 -   a metaphor for postdoctoral existence
 -   a backronym for my initials.
 
-## The interface {#interface data-tocd="about this interface"}
+## rwlsh {#shell data-tocd="about rwlsh"}
 
 If your screen is large enough and you have JavaScript enabled, you'll
-see rwlsh, a shell-like interface for browsing the page. 
+see [rwlsh]{.kbd}, a shell-like command loop for browsing the page. 
+
+<noscript>
+(However, if you can read *this* paragraph, then you don't have
+JavaScript enabled, and rwlsh won't appear. The site should work fine
+without it, so please let me know if it doesn't.)
+</noscript>
 
 If you've ever used a Unix or DOS shell, or a text-based adventure
 game, this should feel familiar.
@@ -53,13 +74,10 @@ rwlsh is an experiment based on a few ideas:
 -   command language: you change position and take other actions by
     issuing commands to the shell
 
-Send me a note with the [mail]{.kbd} command to suggest improvements!
+rwlsh is just some JavaScript hand-written by me. Feel free to
+[browse the source](/lib/js/tui.js), or
+send me a note with the [mail]{.kbd} command to suggest improvements!
 
-<noscript>
-If you can read *this* paragraph, then you don't have
-JavaScript enabled, and rwlsh won't appear. The site should work fine
-without it, so please let me know if it doesn't.
-</noscript>
 
 ## License {#license data-tocd="cc-by-sa 4.0"} 
 [
