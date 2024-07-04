@@ -1,1 +1,5 @@
 *~
+build*
+*.html
+!lib/templates/template.html
+cv/cv.pdf
