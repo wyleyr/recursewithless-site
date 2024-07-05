@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>rwl</name>
+    <email>rwl@recursewithless.net</email>
+  </author>
+  <title>recursewithless.net</title>
+  <id>https://recursewithless.net/</id>
+  <link rel="self" href="https://recursewithless.net/atom.xml" />
+  <updated>$updated$</updated>
+
+  $for(references)$
+  <entry>
+    <id>$references.URL$</id>
+    <title>$references.title$</title>
+    <updated>$references.issued$T00:00:00+02:00</updated>
+    <link href="$references.URL$" />
+    <summary>$references.abstract$</summary>
+  </entry>
+  $endfor$
+</feed>
