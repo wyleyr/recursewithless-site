@@ -1,5 +1,6 @@
 all: 	build/index.html \
 	build/atom.xml \
+	build/rss.xml \
 	$(addprefix build/, $(wildcard lib/css/*.css)) \
 	$(addprefix build/, $(wildcard lib/js/*.js)) \
 	$(addprefix build/, $(wildcard lib/img/*)) \
@@ -26,6 +27,13 @@ atom.xml: feeds.yaml lib/templates/atom.xml
 		--template=lib/templates/atom.xml \
 		-t html \
 		-o atom.xml < /dev/null
+
+rss.xml: feeds.yaml lib/templates/rss.xml
+	pandoc -M updated="$$(date '+%a, %d %b %Y %T %z')"\
+		--metadata-file=feeds.yaml \
+		--template=lib/templates/rss.xml \
+		-t html \
+		-o rss.xml < /dev/null
 
 cv/cv.pdf: cv/cv4pdf.md 
 	pandoc -f markdown+multiline_tables \
