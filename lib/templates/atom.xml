@@ -4,7 +4,7 @@
     <name>rwl</name>
     <email>rwl@recursewithless.net</email>
   </author>
-  <title>recursewithless.net</title>
+  <title>$title$</title>
   <id>https://recursewithless.net/</id>
   <link rel="self" href="https://recursewithless.net/atom.xml" />
   <updated>$updated$</updated>
