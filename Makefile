@@ -11,6 +11,7 @@ all: 	build/index.html \
 	build/projects/index.html \
 	build/projects/chairs-restoration.html \
 	$(addprefix build/, $(wildcard projects/img/chairs/*)) \
+	build/projects/pandoc-feeds.html \
 	build/emacs/index.html \
 	$(addprefix build/, $(wildcard emacs/*.org))
 

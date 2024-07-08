@@ -1,5 +1,9 @@
 title: recursewithless.net
 references:
+- title: Generating Atom and RSS feeds with Pandoc
+  issued: 2024-07-07
+  URL: https://recursewithless.net/projects/pandoc-feeds.html
+  abstract: How I set up feeds for recursewithless.net
 - title: Chairs restoration project
   issued: 2024-07-04
   URL: https://recursewithless.net/projects/chairs-restoration.html
