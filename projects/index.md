@@ -12,4 +12,5 @@ motp: Some things that I work on.
 
 - 2024-07: [Using Pandoc to generate Atom and RSS](./pandoc-feeds.html){#feeds data-tocd="with pandoc"}:
   How I set up feeds for recursewithless.net
-
+- 2024-07: [make is my website build
+  system](./make-website.html){#make data-tocd="for my website"}

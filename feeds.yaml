@@ -1,5 +1,9 @@
 title: recursewithless.net
 references:
+- title: make is my website build system
+  issued: 2024-07-10
+  URL: https://recursewithless.net/projects/make-website.html
+  abstract: How I use make to build my website
 - title: Generating Atom and RSS feeds with Pandoc
   issued: 2024-07-07
   URL: https://recursewithless.net/projects/pandoc-feeds.html
