@@ -18,7 +18,7 @@ rwl + [the usual commercial accounting
 symbol](https://en.wikipedia.org/wiki/At_sign) + recursewithless.net
 </address>
 
-### Others {#others data-tocd="people who I am not"}
+## Others {#others data-tocd="people who I am not"}
 
 Despite my name, please don't confuse me with:
 
@@ -33,7 +33,7 @@ Despite my name, please don't confuse me with:
 or with any of [these notable people](https://en.wikipedia.org/wiki/Richard_Lawrence). The 'w' is important.
   
 
-## The domain {#domain data-tocd="about 'recursewithless.net'"}
+# The domain {#domain data-tocd="about 'recursewithless.net'"}
 
 The domain name "recursewithless.net" is a play on some of my interests in:
 
@@ -46,7 +46,7 @@ It is also:
 -   a metaphor for postdoctoral existence
 -   a backronym for my initials.
 
-## rwlsh {#shell data-tocd="about rwlsh"}
+# rwlsh {#shell data-tocd="about rwlsh"}
 
 If your screen is large enough and you have JavaScript enabled, you'll
 see [rwlsh]{.kbd}, a shell-like command loop for browsing the page. 
@@ -78,7 +78,7 @@ rwlsh is just some JavaScript hand-written by me. Feel free to
 send me a note with the [mail]{.kbd} command to suggest improvements!
 
 
-## License {#license data-tocd="cc-by-sa 4.0"} 
+# License {#license data-tocd="cc-by-sa 4.0"} 
 [
 ![Creative Commons
 License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png){style="border-width:0"}](http://creativecommons.org/licenses/by-sa/4.0/){rel="license"}\
