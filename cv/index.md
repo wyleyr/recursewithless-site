@@ -1,5 +1,6 @@
 ---
 title: Curriculum Vitae
+displayed-title: Richard W. Lawrence
 motp: First time here? Try 'skills', 'publications', or 'toc'.\
  <br>For a PDF version, use 'pdf'.
 ...

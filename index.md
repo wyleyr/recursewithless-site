@@ -1,12 +1,11 @@
 ---
 title: recursewithless.net
+displayed-title: About recursewithless.net
 motp: Welcome! This is the rwl shell, a rather wearisome loop.\
  <br>First time here? Try 'toc', 'nav', or 'show'.
 ---
 
-# About {#about}
-
-## Me {#author tocd="about rwl"}
+# Me {#author tocd="about rwl"}
 
 I am rwl, philosopher, programmer, and cobbler of text.
 
