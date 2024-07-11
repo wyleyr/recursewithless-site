@@ -14,3 +14,5 @@ motp: Some things that I work on.
   How I set up feeds for recursewithless.net
 - 2024-07: [make is my website build
   system](./make-website.html){#make data-tocd="for my website"}
+  
+See also the [Emacs page](/emacs/index.html){#emacs.page}. 
