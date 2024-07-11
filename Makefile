@@ -14,13 +14,24 @@ all: 	build/index.html \
 	build/projects/pandoc-feeds.html \
 	build/projects/make-website.html \
 	build/emacs/index.html \
-	$(addprefix build/, $(wildcard emacs/*.org))
+	build/emacs/org-basic-agenda.html \
+	build/emacs/mnemonic-keymaps.html \
+	$(addprefix build/, $(wildcard emacs/*.org)) 
 
 %.html: %.md lib/templates/template.html lib/css/base.css
 	pandoc -f markdown+multiline_tables+implicit_figures+link_attributes+raw_html -t html \
 		--section-divs \
 		--standalone \
 		--shift-heading-level-by=1 \
+		--template lib/templates/template.html \
+		-o $@ $<
+
+%.html: %.org lib/templates/template.html lib/css/base.css
+	pandoc -f org -t html \
+		--section-divs \
+		--standalone \
+		--shift-heading-level-by=1 \
+		--lua-filter=lib/lua/restore-org-metadata.lua \
 		--template lib/templates/template.html \
 		-o $@ $<
 

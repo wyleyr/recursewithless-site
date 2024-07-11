@@ -1,5 +1,9 @@
 title: recursewithless.net
 references:
+- title: Mnemonic keymaps in Emacs
+  issued: 2024-07-11
+  URL: https://recursewithless.net/emacs/mnemonic-keymaps.html
+  abstract: My strategy for memorable personal keybindings
 - title: make is my website build system
   issued: 2024-07-10
   URL: https://recursewithless.net/projects/make-website.html

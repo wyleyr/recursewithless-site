@@ -1,0 +1,176 @@
+# -*- mode: Org; -*-
+#+title: Mnemonic keymaps
+#+original-date: 2024-07-11
+#+motp: make memorable mappings!
+
+* Where have all the good keys gone?
+  :PROPERTIES:
+  :CUSTOM_ID: problem
+  :END:
+   
+It was not long into my own personal Emacs saga when I ran into a
+problem: finding available keys for my personal keybindings. Every
+good and reasonable binding seemed to already be used up, at least in
+some mode or other that I use. For a brief while I resorted to the
+function keys and painful =C-M-S-Super-Hyper-whatever= combinations.
+But that quickly became unsustainable.
+
+It was however another few years before I discovered a solution that I
+am happy with, and that doesn't seem to be very well known: /mnemonic
+keymaps/. That is, making your own nested keymaps with simple letters
+that are easy to remember. 
+
+* Inspirations
+  :PROPERTIES:
+  :CUSTOM_ID: inspirations
+  :END:
+
+The idea of mnemonic keymaps seems obvious in retrospect, but I came
+to it gradually, after learning a few more things in the intervening
+years.
+
+From [[https://github.com/emacs-evil/evil][evil]] I learned about the benefits of modal editing: composing
+sequences of keys, especially normal letter keys, can be a powerful
+and intuitive way to operate on text. Evil's normal-mode keys are
+often mnemonic: =d w= deletes a word, =d a "= deletes around a
+quotation, =d i (= deletes inside parentheses, and so on. There's a
+single, easy to remember key for "delete" (=d=) and then a whole range
+of other ways to describe /what/ you want to delete, equally easy to
+remember; and so on for other kinds of operations.
+
+But of course, this only works if you have mentally escaped from the
+normal Emacs paradigm of one-key-means-one-editing-command, and
+especially the idea that an unmodified letter key should run
+=self-insert-command=. You need some kind of idea of "modes" or
+"states", even if not the evil ones, to make use of this idea.
+
+Using [[https://magit.vc/][magit]] reinforced these ideas. Magit's system of [[https://github.com/magit/transient][transient]] menus,
+activated in sequence when you press a single key, is one of the
+things that makes magit [[https://endlessparentheses.com/it-s-magit-and-you-re-the-magician.html][feel like magic]]. In magit, key sequences group
+related functions together: everything under =b= has to do with
+branches, everything under =P= has to do with pushing, everything
+under =r= with reverting, etc.
+
+Somewhere along the way, I also learned that the =C-c [a-zA-Z]= keys
+are [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Key-Bindings.html][reserved for users]]. I hadn't learned this early on and only
+discovered it when someone complained on the Org mailing list that Org
+shouldn't use those reserved keys. (RTFM, kids! It's long but it's good.)
+ 
+* Making your own mnemonic keymaps
+  :PROPERTIES:
+  :CUSTOM_ID: making
+  :END:
+
+The idea of mnemonic keymaps is simple: you group related functions
+into a single keymap, binding them to simple letters that help you
+remember them, and then bind the whole keymap to a single letter in
+the user-reserved key range. 
+
+For example, my 'mail' keymap is bound to =C-c m=, and contains
+the following keys:
+
+- =c= ("compose"): =compose-with-sender=, creates a buffer to compose
+  an email
+- =f= ("fetch"): =fetch-mail=, a custom function to download my email
+- =m= ("mail"): =start-notmuch-at-inbox=, opens [[https://notmuchmail.org/][notmuch]], my email interface
+
+Thus I type =C-c m c= to compose a new email, =C-c m f= to fetch
+email, and so on.
+
+The =C-c= prefix transports us out of the =self-insert-mode= hegemony
+and into a tiny "mode" for all things mail-related, freeing us up to
+use single, easy-to-remember letter combinations to do what we want.
+Simple, beautiful, and it works across all major modes (so long as
+they respect the user-reserved keys). I have various other maps that
+use the same idea:
+
+- =C-c f= ("files") for special files that I visit often
+- =C-c r= ("reading") for reading notes and associated files
+- =C-c z= ("zettel") for my own Zettelkasten-like system
+- =C-c b= ("bullseye") for my targeted yanking functions
+
+The great thing about this is that there's no limit: because [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Prefix-Keymaps.html][keymaps
+can be nested]], you can apply this strategy recursively. This means
+that the space of possible combinations is huge. Even though there are
+only 52 keys reserved for you at the top level under =C-c=, you'll
+never run out of easily-memorable keys if you're careful about how you
+organize them.
+
+So how do we do this concretely?
+
+** Create a keymap
+   :PROPERTIES:
+   :CUSTOM_ID: create
+   :END:
+
+The first step is to create a new keymap. You do this with the
+=make-sparse-keymap= function. For example, here's the definition of
+my mail keymap: 
+#+begin_src elisp 
+  (defvar rwl-mail-map
+    (make-sparse-keymap)
+    "Keymap for mail-related functions")
+#+end_src
+
+** Bind the keymap to a user-reserved key
+   :PROPERTIES:
+   :CUSTOM_ID: bind-global
+   :END:
+
+Next, we want to make the new keymap accessible from a user-reserved
+key using =define-key=:
+
+#+begin_src elisp 
+  (define-key (current-global-map) (kbd "C-c m") rwl-mail-map)
+#+end_src
+
+I'm doing this here with the =kbd= function to make it obvious what
+the top-level binding is, but if you know that =C-c= is actually bound
+to =mode-specific-map=, you could also do it like this: 
+
+#+begin_src elisp 
+  (define-key mode-specific-map "m" rwl-mail-map)
+#+end_src
+
+** Bind functions into the new keymap
+   :PROPERTIES:
+   :CUSTOM_ID: bind-functions
+   :END:
+
+Finally, we add bindings in our new keymap for all the functions we
+want to group together, again using =define-key=. Here for example are
+two of the bindings in my mail keymap:
+
+#+begin_src elisp 
+  (define-key rwl-mail-map "m" 'start-notmuch-at-inbox)
+  (define-key rwl-mail-map "c" 'compose-with-sender)
+#+end_src
+
+Notice that we are not binding the functions directly here, but using
+their quoted names. That is, the binding is to a /symbol/. When Emacs
+finds a symbol at the end of a key sequence, it calls the function
+associated with that symbol.
+
+In contrast, when we bound the new keymap into =mode-specific-map=
+above, we did /not/ quote its name, but instead bound the key directly
+to the new keymap value. When Emacs finds a keymap value at the end of
+a key sequence, it will look up the next key in that keymap.
+
+See the documentation for =define-key= (=C-h f define-key=) for more.
+
+** A nice freebie
+   :PROPERTIES:
+   :CUSTOM_ID: freebie
+   :END:
+
+Recent versions of Emacs have added a nice bit of polish: pressing =?=
+in a keymap where it is not bound will automatically call
+=describe-keymap= on that keymap. So if you ever forget what you've
+put into your keymap, you can use =C-c /k/ ?= (for whatever key =/k/=
+you've bound it to) to get an overview of your keymap.
+
+
+
+
+
+

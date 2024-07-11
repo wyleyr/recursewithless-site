@@ -343,7 +343,7 @@ create the tags that will help you find what you want when you're
 looking at the agenda.
 
 Here we create two default tags:
-  - an ACTIVE which we will use to mark projects that are active, so
+  - an ACTIVE tag which we will use to mark projects that are active, so
     that their tasks show up in the daily agenda
   - and a "routine" tag for tasks that should be excluded from
     long-term views
