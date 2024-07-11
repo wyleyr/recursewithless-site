@@ -73,12 +73,10 @@ $title$
 $endif$
 </h1>
 $if(original-date)$
-<em>
-  First published <time datetime="$original-date$">$original-date$</time>.
-  $if(last-update)$
-  Last updated <time datetime="$last-update$">$last-update$</time>.
-  $endif$
-</em>
+<em>First published <time datetime="$original-date$">$original-date$</time>.</em>
+$endif$
+$if(last-update)$
+<em>Last updated <time datetime="$last-update$">$last-update$</time>.</em>
 $endif$
 $body$
 $for(include-after)$
