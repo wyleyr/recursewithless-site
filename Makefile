@@ -20,6 +20,7 @@ all: 	build/index.html \
 	pandoc -f markdown+multiline_tables+implicit_figures+link_attributes+raw_html -t html \
 		--section-divs \
 		--standalone \
+		--shift-heading-level-by=1 \
 		--template lib/templates/template.html \
 		-o $@ $<
 
