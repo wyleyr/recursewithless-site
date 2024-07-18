@@ -13,6 +13,7 @@ all: 	build/index.html \
 	$(addprefix build/, $(wildcard projects/img/chairs/*)) \
 	build/projects/pandoc-feeds.html \
 	build/projects/make-website.html \
+	build/reading/index.html \
 	build/emacs/index.html \
 	build/emacs/org-basic-agenda.html \
 	build/emacs/mnemonic-keymaps.html \

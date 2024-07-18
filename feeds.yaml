@@ -1,5 +1,9 @@
 title: recursewithless.net
 references:
+- title: Reading
+  issued: 2024-07-18
+  URL: https://recursewithless.net/reading/index.html
+  abstract: A new page with a list of some books I have enjoyed in the last few years 
 - title: Mnemonic keymaps in Emacs
   issued: 2024-07-11
   URL: https://recursewithless.net/emacs/mnemonic-keymaps.html
