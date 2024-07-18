@@ -2,6 +2,7 @@ all: 	build/index.html \
 	build/atom.xml \
 	build/rss.xml \
 	$(addprefix build/, $(wildcard lib/css/*.css)) \
+	$(addprefix build/, $(wildcard lib/xsl/*.xsl)) \
 	$(addprefix build/, $(wildcard lib/js/*.js)) \
 	$(addprefix build/, $(wildcard lib/img/*)) \
 	build/cv/index.html \

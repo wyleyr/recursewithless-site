@@ -53,3 +53,9 @@ td {
 figcaption {
     font-size: 0.8em;
 }
+
+aside.banner {
+    padding: 1em;
+    font-size: 0.9em;
+    background-color: gold;
+}
