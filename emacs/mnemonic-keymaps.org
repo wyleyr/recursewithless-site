@@ -16,9 +16,12 @@ function keys and painful =C-M-S-Super-Hyper-whatever= combinations.
 But that quickly became unsustainable.
 
 It was however another few years before I discovered a solution that I
-am happy with, and that doesn't seem to be very well known: /mnemonic
-keymaps/. That is, making your own nested keymaps with simple letters
-that are easy to remember. 
+am happy with: /mnemonic keymaps/. That is, making your own nested
+keymaps with simple letters that are easy to remember. A variety of
+newer packages have suggested or encouraged this idea over the last
+ten years, and I don't claim to have invented it; but so far, I
+haven't seen anyone else give it a name and explicitly recommend it as
+a strategy for making your own keybindings.
 
 * Inspirations
   :PROPERTIES:
@@ -41,15 +44,17 @@ remember; and so on for other kinds of operations.
 But of course, this only works if you have mentally escaped from the
 normal Emacs paradigm of one-key-means-one-editing-command, and
 especially the idea that an unmodified letter key should run
-=self-insert-command=. You need some kind of idea of "modes" or
+=self-insert-command=. Evil does this by borrowing vim's concept of
+modes (called "states" in Evil so as not to be confused with Emacs'
+major and minor modes). You need some kind of idea of "modes" or
 "states", even if not the evil ones, to make use of this idea.
 
-Using [[https://magit.vc/][magit]] reinforced these ideas. Magit's system of [[https://github.com/magit/transient][transient]] menus,
-activated in sequence when you press a single key, is one of the
-things that makes magit [[https://endlessparentheses.com/it-s-magit-and-you-re-the-magician.html][feel like magic]]. In magit, key sequences group
-related functions together: everything under =b= has to do with
-branches, everything under =P= has to do with pushing, everything
-under =r= with reverting, etc.
+Using [[https://magit.vc/][magit]] reinforced the idea of composition of memorable keys.
+Magit's system of [[https://github.com/magit/transient][transient]] menus, activated in sequence when you
+press a single key, is one of the things that makes magit [[https://endlessparentheses.com/it-s-magit-and-you-re-the-magician.html][feel like
+magic]]. In magit, key sequences group related functions together:
+everything under =b= has to do with branches, everything under =P= has
+to do with pushing, everything under =r= with reverting, etc.
 
 Somewhere along the way, I also learned that the =C-c [a-zA-Z]= keys
 are [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Key-Bindings.html][reserved for users]]. I hadn't learned this early on and only
@@ -169,8 +174,25 @@ in a keymap where it is not bound will automatically call
 put into your keymap, you can use =C-c /k/ ?= (for whatever key =/k/=
 you've bound it to) to get an overview of your keymap.
 
+** Update: using =define-keymap=
 
+If you're using Emacs 29 or later, there's another option, which I
+recently learned about thanks to [[https://systemcrafters.net/newsletter/sc-news-004][this newsletter]]: instead of the
+combination of =defvar=, =make-sparse-keymap= and =define-key= I used
+above, you can use the new macro =define-keymap= to simplify the
+declaration. The equivalent definition looks like this:
+#+begin_src elisp
+(global-set-key
+ (kbd "C-c m")
+ (define-keymap
+   :prefix 'rwl-mail-map
+   "c" 'compose-with-sender
+   "f" 'fetch-mail
+   "m" 'start-notmuch-at-inbox))
+#+end_src
 
-
-
-
+The (to me, nonobvious) =:prefix= keyword here must be "a symbol to be
+used as a prefix command", and if given, the map will be stored as the
+function value of the symbol. Thus this effectively says: bind the
+global key =C-c m= to the command =rwl-mail-map=, the value of which
+is the created keymap.
