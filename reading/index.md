@@ -31,8 +31,8 @@ telling the real story (or at least, *a* real story) that won't
 otherwise be found in the approved sources of history, especially the
 newspapers of the day. I downloaded the text from
 [george-orwell.org](http://www.george-orwell.org/Homage_to_Catalonia/)
-and made an EPUB out of it, correcting typos as I went.
-<!-- **HERE** is the result; feel free to send me further corrections. -->
+and [made an EPUB out of it](/reading/ebooks/OrwellHomageToCatalonia.epub),
+correcting typos as I went; feel free to send me further corrections.
 
 **David Graeber, <cite data-key="Graeber2018">Bullshit Jobs</cite>.**
 Not a particularly encouraging book to read if you're already feeling

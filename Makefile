@@ -15,6 +15,7 @@ all: 	build/index.html \
 	build/projects/pandoc-feeds.html \
 	build/projects/make-website.html \
 	build/reading/index.html \
+	$(addprefix build/, $(wildcard reading/ebooks/*)) \
 	build/emacs/index.html \
 	build/emacs/org-basic-agenda.html \
 	build/emacs/mnemonic-keymaps.html \
