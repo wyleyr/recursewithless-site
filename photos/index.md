@@ -3,9 +3,7 @@ title: Photos
 motp: of and/or by rwl. Try 'think'.
 ...
 
-# Photos {#photolist data-tocd="all photos"}
-
-## of rwl {#of data-tocd="rwl"}
+# of rwl {#of data-tocd="rwl"}
 
 ![In which I am skeptical of an alternative careerpath](./ThinkTank.jpg){#think}
 
@@ -15,7 +13,7 @@ motp: of and/or by rwl. Try 'think'.
 
 ![In which I have made a friend](./TheGoat.jpg){#goat}
 
-## by rwl {#by data-tocd="rwl"}
+# by rwl {#by data-tocd="rwl"}
 
 ![In which I congratulate myself for hauling it over the gate](./BikeAtTheLaw.jpg){#bike}
 
