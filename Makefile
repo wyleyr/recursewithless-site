@@ -9,6 +9,8 @@ all: 	build/index.html \
 	build/cv/cv.pdf \
 	build/photos/index.html \
 	$(addprefix build/, $(wildcard photos/*.jpg)) \
+	build/photos/portugaltour2023.html \
+	$(addprefix build/, $(wildcard photos/img/2023/portugaltour/*.jpg)) \
 	build/projects/index.html \
 	build/projects/chairs-restoration.html \
 	$(addprefix build/, $(wildcard projects/img/chairs/*)) \

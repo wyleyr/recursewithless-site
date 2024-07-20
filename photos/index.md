@@ -19,3 +19,6 @@ motp: of and/or by rwl. Try 'think'.
 
 ![In which I have lost again](./BigChess.jpg){#chess}
 
+# Other photo pages {#further data-tocd="photo pages here"}
+
+- [Bicycle tour in Portugal and Spain, April 2023](./portugaltour2023.html){#tour2023 data-tocd="cycling in Portugal and Spain"}
