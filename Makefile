@@ -7,6 +7,8 @@ all: 	build/index.html \
 	$(addprefix build/, $(wildcard lib/img/*)) \
 	build/cv/index.html \
 	build/cv/cv.pdf \
+	build/texts/index.html \
+	build/texts/2023-04-03portugaltour.html \
 	build/photos/index.html \
 	$(addprefix build/, $(wildcard photos/*.jpg)) \
 	build/photos/portugaltour2023.html \
