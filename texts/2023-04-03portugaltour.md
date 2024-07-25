@@ -41,21 +41,22 @@ English but some Swiss German, so we manage. We finally get into the
 shippers' warehouse office and pick up some paperwork but at this
 point it's after 5PM and the Customs office is closed. A small defeat
 typical of European bureaucracy. We enjoy dinner at O Velho Eurico at
-Joan's suggestion. The guy running front of the house solo makes
+my local friend's suggestion. The guy running front of the house solo makes
 friends with everyone; the food is excellent. We go to bed happy, in
 the boat.
 
 # <time datetime="2023-04-05"> Wednesday, 5. April</time> {#5.4 data-tocd="We're off"}
 
-We get up early, pack up, Uber back to the cargo area. I stow the
-stuff behind a sign and settle into bureaucracy part two: Customs.
-Three people in the office, and they take about 45 minutes to process
-the paperwork together. By the end of it they're friendly with us and
-excited about the trip. I pay my €47.97 at the window, bring the
-documents back, get the stamp. Finally we can go back to the shipper.
-Another fee, another wait, and then my bicycle is brought to us on a
-forklift. We build it up and are in business by 1PM. At a bike shop we
-replace the front tire and grips and buy a lock. Then we hit the road.
+We get up early, pack up, and I Uber back to the cargo area while
+Serge rides his bike up there. I stow the stuff behind a sign and
+settle into bureaucracy part two: Customs. Three people in the office,
+and they take about 45 minutes to process the paperwork together. By
+the end of it they're friendly with us and excited about the trip. I
+pay my €47.97 at the window, bring the documents back, get the stamp.
+Finally we can go back to the shipper. Another fee, another wait, and
+then my bicycle is brought to us on a forklift. We build it up and are
+in business by 1PM. At a bike shop we replace the front tire and grips
+and buy a lock. Then we hit the road.
 
 We've barely seen Lisbon at all but it's time to leave. We bike
 through town to the ferry that takes us across the bay. Then we ride all
@@ -90,7 +91,7 @@ campground.
 # <time datetime="2023-04-07">Friday, 7. April</time> {#7.4 data-tocd="Melides, Santiago do Cacém, Cercal, Vila Nova de Milfontes"}
 
 At some point on this day I noticed that the Portuguese language is
-more gendered than anything else I'm aware of. "Thank you" declines
+more gendered than any other I'm aware of. "Thank you" declines
 with the speaker's gender; there are male, female, and neuter(?) forms
 of the genitive-forming particle (do/da/de -- I learn later from an
 Italian friend that this is actually just a combination of the
