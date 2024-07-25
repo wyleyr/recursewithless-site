@@ -18,6 +18,8 @@ all: 	build/index.html \
 	$(addprefix build/, $(wildcard projects/img/chairs/*)) \
 	build/projects/mundraub.html \
 	$(addprefix build/, $(wildcard projects/img/mundraub/*)) \
+	build/projects/cat-ladder.html \
+	$(addprefix build/, $(wildcard projects/img/catladder/*)) \
 	build/projects/pandoc-feeds.html \
 	build/projects/make-website.html \
 	build/reading/index.html \

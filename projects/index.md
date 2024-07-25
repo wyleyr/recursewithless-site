@@ -7,6 +7,8 @@ motp: Some things that I work on.
 
 - 2024-07: [Chair restoration](./chairs-restoration.html){#chairs data-tocd="restoration project"}:
   I bought some 120 year old chairs and they needed some work
+- 2023-06: [Cat ladder](./cat-ladder.html){#ladder data-tocd="so an elderly cat can get high"}:
+  How my partner and I helped her cat move up in the world
   
 # Code
 
