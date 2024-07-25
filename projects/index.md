@@ -16,3 +16,7 @@ motp: Some things that I work on.
   system](./make-website.html){#make data-tocd="for my website"}
   
 See also the [Emacs page](/emacs/index.html){#emacs.page}. 
+
+# Food
+
+- 2024-07: [Collecting fruit in Vienna](./mundraub.html){#fruit data-tocd="from public trees in Vienna"}
