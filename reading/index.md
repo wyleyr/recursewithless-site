@@ -1,7 +1,7 @@
 ---
 title: Reading
 motp: Books I've enjoyed.<br>Mail me your recommendations!
-last-update: 2024-07-18 
+last-update: 2024-08-12 
 ---
 
 # Non-fiction
@@ -45,24 +45,48 @@ of a hierarchy.
 
 **David Graeber and David Wendgrow,
 <cite data-key="GraeberWendgrow2022">The Dawn of Everything</cite>.**
+I read this in summer 2022, when it had just been published and was
+being heavily promoted. The first chapter made a strong impression on
+me: the idea that the American value of liberty actually arose from a
+Native American critique of European culture was fascinating and made
+me want to read the original. (Still haven't gotten around to that.)
+The principle of "schismogenesis" also struck a chord with me, the
+idea that cultures sometimes reject ideas, even when they would be
+beneficial, in order to define themselves in opposition to others:
+"that's how *they* do it; *we* do this". I was reading the book in the
+US, my first visit after the pandemic, and thought this principle
+could explain a good deal of the sad political landscape I could see.
+In general the book, like the earlier <cite>Debt</cite>, is excellent
+at illustrating the tremendous variety in human societies, and showing
+us that other forms of life are possible; there has been more *actual*
+variety in human culture than you could possibly imagine. 
 
 # Fiction
 
+**James Joyce, <cite data-key="Joyce122">Ulysses</cite>.**
+I tried reading this many years ago and did not get
+very far, but after seeing it appear on
+[Standard Ebooks](https://standardebooks.org/ebooks/james-joyce/ulysses),
+I decided to try it again. My first impression was: is this supposed to be
+[stream of consciousness](https://en.wikipedia.org/wiki/Stream_of_consciousness)?
+James' consciousness must be very different from mine. My second was:
+oh yes, wait, there's something to this.
+
 **[Terry Pratchett](http://www.gnuterrypratchett.com/)'s
   <cite data-key="PratchettDW">Discworld</cite> series.**
-I've been working through it since December 2023. I did not expect to
+I worked through (almost) the whole series in 2024. I did not expect to
 enjoy anything featuring wizards and magic and dwarves and trolls and
 goblins; but after much prodding by a friend, I started with *Thud!*
-and haven't been able to stop. Pratchett is a devastating satirist and
-a sharp, if sometimes cyncial, observer of human character. (*Thud!*
-is, incidentally, not a good starting point if you're considering
+and couldn't stop. Pratchett is a devastating satirist and
+a sharp, if sometimes cyncial, observer of human character and institutions.
+(*Thud!* is, incidentally, not a good starting point if you're considering
 jumping into the series yourself; it was a random choice on my part,
 but at least had the virtue of featuring Sam Vimes in his prime. If
 I'd started with the chronologically-first *The Color of Magic* I'm
-not sure I would have continued.) I've mostly followed
+not sure I would have continued.) I mostly followed
 [this visual guide](https://en.wikipedia.org/wiki/Discworld#/media/File:Discworld_Reading_Order_Guide_3.0_(cropped).jpg),
 reading two or three storylines in parallel.
-I've enjoyed the City Watch, Death, and Industrial Revolution
+I enjoyed the City Watch, Death, and Industrial Revolution
 storylines the most; I'd recommend the Watch storyline if you're
 looking for a starting point.
 
