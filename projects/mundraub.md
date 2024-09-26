@@ -2,7 +2,7 @@
 title: Collecting fruit from public trees in Vienna
 motp:
 original-date: 2024-07-25
-last-update:
+last-update: 2024-09-26
 ---
 
 This summer I've been busily gathering fruit from trees and bushes
@@ -54,12 +54,19 @@ directly. So far in 2024 I've made jam with:
 
    ![Jam from Mirabellen and Kornelkirschen](./img/mundraub/MirabellenKornelkirschenMarmelade.jpeg){#cornelianjam}
 
-and I'm looking forward to
+1. [Zwetschgn](https://bar.wikipedia.org/wiki/Zwetschgn) (that is a
+   link to *Bavarian* Wikipedia(!); [see here for
+   Hochdeutsch](https://de.wikipedia.org/wiki/Zwetschge)), though alas
+   I did not find any public Zwetschgn trees this year, and ended up
+   buying them
 
-- [Zwetschgn](https://bar.wikipedia.org/wiki/Zwetschgn) (that is a
-  link to *Bavarian* Wikipedia(!); [see here for Hochdeutsch](https://de.wikipedia.org/wiki/Zwetschge)) 
-- [Mulberries](https://mundraub.org/maulbeere-steckbrief)
-- [Quinces](https://mundraub.org/quitte-steckbrief)
+I missed out on [Mulberries](https://mundraub.org/maulbeere-steckbrief) this year,
+but I've just harvested some [Quinces](https://mundraub.org/quitte-steckbrief)
+I've had my eye on and will make jam from them soon.
+
+I also made a [red sauce](./hagebutten-sauce.html) from
+[rose hips](https://mundraub.org/hagebutte-steckbrief) as a
+replacement for tomato sauce.
 
 
 ## The pits
