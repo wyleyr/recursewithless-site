@@ -1,10 +1,17 @@
 ---
 title: Reading
 motp: Books I've enjoyed.<br>Mail me your recommendations!
-last-update: 2024-08-12 
+last-update: 2024-09-26 
 ---
 
 # Non-fiction
+
+**Bartholomäus Grill, <cite data-key="Grill2024">Bauernsterben</cite>.**
+I've just started this, but it is living up to what the
+newspaper reviews promised: a devastating critique of modern
+industrial agriculture, from a man who grew up on a traditional farm
+and watched the "Green Revolution" destroy it. Often tragic, sometimes
+bitingly funny.
 
 **Stefan Zweig, <cite data-key="Zweig1942">Die Welt von Gestern</cite>.**
 Currently reading this in German. I live in Vienna and it's been very
@@ -62,6 +69,19 @@ us that other forms of life are possible; there has been more *actual*
 variety in human culture than you could possibly imagine. 
 
 # Fiction
+
+**Wolf Haas' <cite data-key="HaasBR">[Brenner novels](https://de.wikipedia.org/wiki/Wolf_Haas#Brenner-Krimis)</cite>**.
+A zany detective series, set in various places in Austria, which
+follows the misadventures of former detective Simon Brenner as he
+gets entangled in one murder after another. I started the series a
+couple of years ago, and they've all provided amusing windows for me
+onto Austrian culture and language, if from a (very) skewed angle.
+("Sehr abgefahren" was my cousin's description when he introduced me
+to the series.) Most recently I finished <cite lang="de">Der Brenner
+und der liebe Gott</cite> and <cite lang="de">Müll</cite>, which as of
+this writing is the latest one. To give you an idea of what you're in
+for, without any spoilers: in the former, Brenner finally meets his
+maker---in the pit beneath a privy.
 
 **James Joyce, <cite data-key="Joyce122">Ulysses</cite>.**
 I tried reading this many years ago and did not get
