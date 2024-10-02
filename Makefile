@@ -10,6 +10,7 @@ all: 	build/index.html \
 	build/texts/index.html \
 	build/texts/2023-04-03portugaltour.html \
 	build/texts/2024-08-14retirement-advice.html \
+	build/texts/2024-09-04usps.html \
 	build/photos/index.html \
 	$(addprefix build/, $(wildcard photos/*.jpg)) \
 	build/photos/portugaltour2023.html \
