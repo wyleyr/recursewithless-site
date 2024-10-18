@@ -21,4 +21,5 @@ See also the [Emacs page](/emacs/index.html){#emacs.page}.
 
 # Food
 
+- 2024-08: [Rose hip red sauce](./hagebutten-sauce.html){#red data-tocd="sauce from rose hips"}
 - 2024-07: [Collecting fruit in Vienna](./mundraub.html){#fruit data-tocd="from public trees in Vienna"}

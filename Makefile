@@ -29,6 +29,8 @@ all: 	build/index.html \
 	build/emacs/index.html \
 	build/emacs/org-basic-agenda.html \
 	build/emacs/mnemonic-keymaps.html \
+	build/emacs/icalendar-parser-and-mode.html \
+	$(addprefix build/, $(wildcard emacs/icalendar/*)) \
 	$(addprefix build/, $(wildcard emacs/*.org)) 
 
 %.html: %.md lib/templates/template.html lib/css/base.css

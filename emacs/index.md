@@ -10,6 +10,9 @@ You should too.
 
 # Tips, tricks, tutorials {#posts}
 
+- [Improving Emacs' iCalendar support](./icalendar-parser-and-mode.html){#icalendar-mode}
+  ([download Org file](./icalendar-parser-and-mode.org){#icalendar-mode-dl}):
+  I've started working on a new iCalendar parser and major mode for Emacs
 - [Mnemonic keymaps](./mnemonic-keymaps.html){#keymaps}
   ([download Org file](./mnemonic-keymaps.org){#keymaps-dl}):
   How to make memorable keybindings and never run out of keys!

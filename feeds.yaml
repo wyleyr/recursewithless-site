@@ -1,5 +1,9 @@
 title: recursewithless.net
 references:
+- title: Improving Emacs' iCalendar support
+  issued: 2024-10-18
+  URL: https://recursewithless.net/emacs/icalendar-parser-and-mode.html
+  abstract: I've started working on a new iCalendar parser and major mode for Emacs
 - title: The USPS should be giving Paypal a run for their money 
   issued: 2024-09-04
   URL: https://recursewithless.net/texts/2024-09-04usps.html
