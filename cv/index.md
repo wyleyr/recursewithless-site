@@ -152,8 +152,8 @@ Logical Equation and their Relation to the Theory of Valid Inference".
 In: Aristotle's Organon in Old and New Logic. Eds. Colin King and
 Venanzio Raspa. Bloomsbury.
 
-Lawrence, Richard. Forthcoming. "Kant's Prize Essay and Nineteenth
-Century Formalism". Kant Yearbook.
+Lawrence, Richard. 2024. "Kant's Prize Essay and Nineteenth Century
+Formalism". Kant Yearbook 16 (1) 31--52. <https://doi.org/10.1515/kantyb-2024-0002>
 
 Lawrence, Richard. 2023. "Frege, Thomae, and Formalism:
 Shifting Perspectives". Journal for the History of Analytical
@@ -193,6 +193,13 @@ Translated by Richard Lawrence.
 [Current version](https://wyleyr.github.io/hankel1867tr/)
 [Source code](https://github.com/wyleyr/hankel1867tr)
 [Latest release](https://doi.org/10.5281/zenodo.8016825)
+
+Hahn, Olga. 1910/Forthcoming. "On the Coefficients of a
+Logical Equation and their Relation to the Theory of Valid Inference".
+In: Aristotle's Organon in Old and New Logic. Eds. Colin King and
+Venanzio Raspa. 
+Translated by Richard Lawrence and Justin Vlasits.
+Bloomsbury.
 
 ## Research software {#software data-tocd="research software"}
 
