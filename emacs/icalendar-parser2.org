@@ -1,0 +1,237 @@
+# -*- mode: org; -*-
+#+title: iCalendar Support Part 2: a real parser!
+#+author: Richard Lawrence
+#+original-date: 2024-11-26
+
+Over the last month, I've continued the work I started in [[https://recursewithless.net/emacs/icalendar-parser-and-mode.org][Part 1]],
+building an honest-to-goodness parser that reads iCalendar data into
+Elisp data structures. Over the last week, I reached an important
+milestone: the code can now parse and reproduce all the examples in
+[[https://www.rfc-editor.org/rfc/rfc5545][RFC5545]], the iCalendar standard, as well as all my own calendar data.
+
+It parses iCalendar data like this:
+#+begin_example
+BEGIN:VEVENT
+UID:19970610T172345Z-AF23B2@example.com
+DTSTAMP:19970610T172345Z
+DTSTART:19970714T170000Z
+DTEND:19970715T040000Z
+SUMMARY:Bastille Day Party
+END:VEVENT
+#+end_example
+to Elisp parse trees like this:
+#+begin_src elisp
+  (icalendar-vevent #s(icalendar-meta ...)
+                    nil
+    ((icalendar-uid #s(icalendar-meta ...)
+        (icalendar-text #s(icalendar-meta ...)
+           "19970610T172345Z-AF23B2@example.com"
+           nil)
+        nil)
+     (icalendar-dtstamp #s(icalendar-meta ...)
+        (icalendar-date-time #s(icalendar-meta ...)
+           (45 23 17 10 6 1997 2 -1 0)
+           nil)
+        nil)
+     (icalendar-dtstart #s(icalendar-meta ...)
+        (icalendar-date-time #s(icalendar-meta ...)
+           (0 0 17 14 7 1997 1 -1 0)
+           nil)
+        nil)
+     (icalendar-dtend #s(icalendar-meta ...)
+        (icalendar-date-time #s(icalendar-meta ...)
+           (0 0 4 15 7 1997 2 -1 0)
+           nil)
+        nil)
+     (icalendar-summary #s(icalendar-meta ...)
+        (icalendar-text #s(icalendar-meta ...)
+           "Bastille Day Party")
+           nil)
+        nil))
+#+end_src
+
+The code is available on sr.ht at this URL:
+
+https://sr.ht/~wyleyr/icalendar-el/
+
+and there are some instructions in the README to get started, if you
+want to play around with it. Here I want to share some of the
+decisions I made to get to this point and the reasons for them, and a
+couple of wrong turns I took along the way.
+
+* Representing the iCalendar data types
+  :PROPERTIES:
+  :CUSTOM_ID: data-types
+  :END:
+
+The first step in creating a parser is to decide what data structures
+it should produce. Following [[https://lists.gnu.org/archive/html/emacs-devel/2024-10/msg00445.html][a suggestion by Adam Porter]] (which in
+retrospect I may have misinterpreted), I started by defining cl-struct
+types for each of the basic iCalendar data types: dates, date-times,
+text, etc. This turned out to be a bad idea. I quickly found myself
+writing a bunch of boilerplate code to convert between my structs and
+the "native" Emacs representations of these values, and abandoned the
+effort. Instead, I decided to use the native representations as much
+as possible, and create simple new representations (mostly just based
+on lists) where none already existed. I hope this will make the
+library maximally useful for people calling it from elsewhere in
+Emacs.
+
+With that decision made for the basic data types, I still needed to
+decide on a representation for the parse tree. Here I followed [[https://lists.gnu.org/archive/html/emacs-devel/2024-10/msg00601.html][Ihor
+Radchenko's suggestion]] and based the representation on Org mode's
+parse tree, defined in =org-element-ast.el=. I'm already relatively
+familiar with this representation, I like that it's is easy to work
+with, and I like that it's already proven its worth in a more
+complicated use case. 
+
+In my custom-rolled parse tree, have not implemented the lazy
+evaluation which helps make Org's parser fast. That would be a
+premature optimization at this point, and I suspect it may not be
+needed at all for iCalendar data (which unlike Org data will be small
+and static in "most" cases, since most people don't edit iCalendar
+data by hand). But Ihor is planning to make org-element-ast a more
+generalized library in Emacs, and if I ever need this optimization,
+using the same basic parse tree structure means it will be easy to
+switch to that library.
+
+* Expanding the =define-*= macros
+  :PROPERTIES:
+  :CUSTOM_ID: define-macros
+  :END:
+
+In Part 1 I had already settled on a design that was inspired by
+[[https://github.com/davazp/cl-icalendar][cl-icalendar]], and is an old Lisp tradition: using macros to turn a
+specification (in this case, the standard) into code. This makes the
+specification both readable by the programmer and enforceable by the
+program. The parser is built around four central macros, each of which
+corresponds to one of the major categories in the iCalendar grammar:
+=define-type= for value types, =define-param= for parameters,
+=define-property= for properties, and =define-component= for
+components. At the end of Part 1, these macros didn't do much except
+define some regular expressions and a matching function to provide
+syntax highlighting in iCalendar mode.
+
+My first thought, then, was to simply expand these macros to accept
+more arguments and do more work. I added arguments to codify the
+semantics given in the standard, and defined functions in the macro
+body to parse each of the defined types. =(ical:define-property
+ical:dtstart "DTSTART" ...)=, for example, would define the functions
+=ical:parse-dtstart-property=, =ical:read-dtstart-property-value=,
+=ical:print-dtstart-property-node=, and so on. Because these functions
+knew about the =:default-type= keyword argument passed to the macro,
+they could parse values of the appropriate type or raise errors if
+they weren't present.
+
+This design turned out to be a mistake. Defining the parsing functions
+in the macro bodies resulted in an explosion of symbols, and made
+loading the parser very slow. I eventually changed to a design where
+the parsing functions were defined once, outside the macros, and
+accept a type symbol as their first argument. The macros now just
+cache the type-related metadata in their arguments as symbol
+properties on the defined type symbol, which the parsing functions can
+look up and use as needed.
+
+I should have made this change much earlier. As the parsing functions
+in the macro bodies grew more complex, debugging them became painful:
+redefining them required reloading the whole library, and I would
+often get inscrutable errors at macro expansion time that were hard to
+locate and debug. Everything became instantly much easier, cleaner,
+and snappier when I finally realized I could just have a single
+parsing function that accepts a type symbol argument, instead of one
+parsing function for each type. An old lesson, learned again: Lisp
+macros are powerful, but you shouldn't use them where a function will
+do.
+
+One part of the design that I'm still unsure about is the distinction
+I've introduced between "parsing" and "reading". Basically, parsing
+consists of matching a regular expression, followed by reading of the
+matched string to an Elisp data structure. The advantage of drawing
+this distinction is that reading looks like a pure function: whereas
+parsing depends on global state like the current buffer and the value
+of point, reading can "just" be a pure function that maps a string to
+something else. Unfortunately, looks can be deceiving. Except for very
+simple readers, reading still depends on a different piece of state:
+the match data, which is set up by the corresponding parsing function.
+This makes the reader functions more difficult to use and test
+independently of the parsing functions.
+
+I'm not sure how to resolve this at the moment. Perhaps the easiest
+thing would be to pass the match data explicitly, as an optional
+argument, when a reader requires it. That would restore their purity,
+but it doesn't simplify the process of calling them: the caller still
+has to do the match, and make the match data available. Another option
+would be to do the matching inside the reader itself; but the parsing
+functions also need access to the match data (e.g. they should throw
+an error, instead of calling a reader, when a value doesn't match),
+and it would be silly to perform the match twice. I need to think
+about this some more.
+
+* Documentation
+  :PROPERTIES:
+  :CUSTOM_ID: docs
+  :END:
+
+I focused a lot on making good documentation as I went along. This is
+because I think Emacs' documentation system is one of its best
+features, and because the lack of documentation for and in the
+existing icalendar.el code is one of the things that makes it most
+difficult to work with. So each of the =define-*= macros accepts a
+docstring, computes some additional documentation, and saves it all in
+the =type-documentation= property of the relevant symbol. This
+documentation is then accessible via =M-x describe-symbol= (i.e., =C-h
+o=). I spent a lot of time adding documentation for each value type,
+parameter, property and component based on the text of the standard,
+which I hope strikes a good balance of providing enough information to
+be useful without being too verbose. Each definition also has a link
+to the relevant section of the standard, so it's easy to get all the
+details if you need them.
+
+I actually didn't know about =describe-symbol= until recently, but
+it's an extremely useful help function. I saw that =cl-lib= provides
+documentation for types and structs via =describe-symbol=, and in
+figuring out how it does this, I discovered the variable
+=describe-symbol-backends=. (So at least something good came out of my
+experiment with structs!) I wrote a simple backend,
+=icalendar-describe-symbol-backend=, to provide documentation of all
+the iCalendar type symbols, as well as =rx= regular expressions. This
+has already saved me from having to go back to the standard quite a
+few times.
+
+* Tests
+  :PROPERTIES:
+  :CUSTOM_ID: tests
+  :END:
+
+Another feature I added relatively late was a file of [[https://www.gnu.org/software/emacs/manual/html_mono/ert.html][ERT]] tests for
+the parser. These are simple tests that run a parsing function on a
+snippet of iCalendar data, then print the resulting parse tree to a
+string, and pass if the printed result is =equal= to the snippet.
+Taking the time to enter all the examples from RFC5545 as snippets,
+and getting the resulting tests to pass, gave me a lot more confidence
+that my parser is doing the right thing in every case. Again, I should
+have done this much earlier.
+
+I had been aware of ERT before, but never used it myself. It is really
+slick: it's super easy to define and run tests, it was easy to build a
+macro around test definitions to reduce redundancy, and it's a
+pleasure to use interactively. I was also impressed with how fast the
+tests run. It's a wonderful Emacs feature and one I will rely on more
+as I continue this project.
+
+* What's next?
+  :PROPERTIES:
+  :CUSTOM_ID: up-next
+  :END:
+
+The next thing I want to work on is validation. The parser currently
+does not do anything to check that the structure of the parse tree is
+actually allowed by the standard. It is probably good to be flexible
+about this when parsing external data, but not when printing a
+locally-grown parse tree to iCalendar format. There are various
+constraints, such as which properties are required in which
+components, that can and should be checked before the data is written
+to a file or sent over the wire. Some of these are relatively
+complicated and will require functions specific to the case of a
+single node type.
+

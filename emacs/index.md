@@ -10,6 +10,9 @@ You should too.
 
 # Tips, tricks, tutorials {#posts}
 
+- [iCalendar Support Part 2: a real parser!](./icalendar-parser2.html){#icalendar-parser}
+  ([download Org file](./icalendar-parser2.org){#icalendar-parser-dl}):
+  I've started working on a new iCalendar parser and major mode for Emacs
 - [Improving Emacs' iCalendar support](./icalendar-parser-and-mode.html){#icalendar-mode}
   ([download Org file](./icalendar-parser-and-mode.org){#icalendar-mode-dl}):
   I've started working on a new iCalendar parser and major mode for Emacs

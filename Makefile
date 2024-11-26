@@ -30,6 +30,7 @@ all: 	build/index.html \
 	build/emacs/org-basic-agenda.html \
 	build/emacs/mnemonic-keymaps.html \
 	build/emacs/icalendar-parser-and-mode.html \
+	build/emacs/icalendar-parser2.html \
 	$(addprefix build/, $(wildcard emacs/icalendar/*)) \
 	$(addprefix build/, $(wildcard emacs/*.org)) 
 

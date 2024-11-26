@@ -1,7 +1,9 @@
 # -*- mode: org; -*-
 #+title: Improving Emacs' iCalendar support 
+#+subtitle: Part 1: Grammar and syntax highlighting 
 #+author: Richard Lawrence
 #+original-date: 2024-10-18
+#+last-update: 2024-11-24
 #+motp: For discussion on emacs-devel 
 
 #+CAPTION: A screenshot of icalendar-mode

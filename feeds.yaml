@@ -1,5 +1,9 @@
 title: recursewithless.net
 references:
+- title: "Improving Emacs' iCalendar support, Part 2: a real parser!"
+  issued: 2024-11-26
+  URL: https://recursewithless.net/emacs/icalendar-parser2.html
+  abstract: I've built a new iCalendar parser for Emacs
 - title: Improving Emacs' iCalendar support
   issued: 2024-10-18
   URL: https://recursewithless.net/emacs/icalendar-parser-and-mode.html
