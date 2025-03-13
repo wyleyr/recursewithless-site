@@ -31,6 +31,7 @@ all: 	build/index.html \
 	build/emacs/mnemonic-keymaps.html \
 	build/emacs/icalendar-parser-and-mode.html \
 	build/emacs/icalendar-parser2.html \
+	build/emacs/icalendar-recurrences.html \
 	$(addprefix build/, $(wildcard emacs/icalendar/*)) \
 	$(addprefix build/, $(wildcard emacs/*.org)) 
 

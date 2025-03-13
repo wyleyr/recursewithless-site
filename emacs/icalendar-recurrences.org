@@ -1,0 +1,262 @@
+# -*- mode: org; -*-
+#+title: iCalendar Support Part 3: Recurrence Rules
+#+author: Richard Lawrence
+#+original-date: 2025-03-13
+
+I've reached another big milestone in my efforts ([[https://recursewithless.net/emacs/icalendar-parser-and-mode.org][Part 1]], [[https://recursewithless.net/emacs/icalendar-parser2.org][Part 2]]) to
+improve Emacs' iCalendar support: I now have a working implementation
+of iCalendar [[https://www.rfc-editor.org/rfc/rfc5545#section-3.8.5.3][recurrence rules]], including time zone support. This is
+the last major piece missing from the existing iCalendar code in
+Emacs; with this in place, it should be possible to build some things
+that have been difficult or impossible before, like a full-featured
+iCalendar-to-Org importer.
+
+If you're interested in testing this work out, or contributing to the
+discussion about it, please see the most recent patch I posted in
+[[https://debbugs.gnu.org/cgi/bugreport.cgi?bug=74994][Bug#74994]] and the [[https://lists.gnu.org/archive/html/emacs-devel/2024-10/msg00425.html][discussion thread on emacs-devel]]. I would be
+especially grateful for anyone who can contribute to testing recurring
+events in time zones other than US Eastern. (All the tests I have so
+far use US Eastern, since that's what's used in the examples in
+RFC5545.)
+
+* Recurrence rules
+
+What are "recurrence rules"? They're iCalendar's syntax for how events
+repeat. With recurrence rules, you can express, for example, that an
+event repeats "every year on November 11", or "every week on Monday at
+10:00AM", or "every three months on the last Friday of the month". As
+the last example shows, the rules are actually quite flexible and
+expressive. The designers of the standard seem to have put a lot of
+thought into making sure recurrence rules could cover as wide a range
+of real-world uses as possible.
+
+Unfortunately, this makes them complicated to implement. Recurrence
+rules are expressed in terms of our ordinary, human-level concepts for
+times and dates, like "every 3 months" and "at 9AM". For that reason,
+they're difficult to compute with. How many days into the future is
+the date "3 months" from now? What does "at 9AM" mean on that date? To
+turn these descriptions into a description of a time that's precise
+enough for a computer, you need to know things like the number of days
+in each month, the relevant time zone for the dates and times in
+question, and the offset from UTC time in effect in that time zone on
+those dates.
+
+You might think you could implement most of the iCalendar standard
+without dealing with all this complexity, and just leave recurrence
+rules as an add-on to be implemented when a need arises. But you
+can't. Most date-time values in iCalendar format are expressed like this:
+#+begin_example
+DTSTART;TZID=Europe/Vienna:20250313T080000
+#+end_example
+Here we have a time stamp in /local/ time (=20250313T080000=, i.e.,
+"8AM on March 13, 2025") paired with a time zone ID (=Europe/Vienna=).
+The offset of this local time from UTC is not directly encoded in the
+timestamp. Instead, to know what UTC time this corresponds to,
+you need to look up the definition of the time zone with this ID,
+which might look like this:
+#+begin_example
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+BEGIN:STANDARD
+DTSTART:19700101T000000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700101T000000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+#+end_example
+The =VTIMEZONE= component here contains two subcomponents: a
+=STANDARD= component and a =DAYLIGHT= component, which specify the UTC
+offsets for standard and daylight time in the =Europe/Vienna= time
+zone. But notice how these components are expressed: each contains an
+=RRULE= property containing a recurrence rule for the transitions to
+standard and daylight time. The rule for standard time, for example, is
+#+begin_example
+FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+#+end_example
+which means "every year in October on the last Sunday of the month",
+which is when the transition from daylight to standard time happens in
+the Europe/Vienna time zone. Similarly, the rule for daylight time
+means "every year in March on the last Sunday of the month". The
+=TZOFFSETFROM= and =TZOFFSETTO= properties in these components then
+tell you the offsets from UTC time immediately before and after these
+yearly transitions.
+
+So suppose you received an email invitation to an online meeting
+containing an iCalendar attachment with this information, and you want
+to add it to your calendar in Emacs. How should Emacs display it
+relative to your other appointments (which might be in another time
+zone)? To put your appointments in order, it needs to calculate a
+fixed point in UTC time for each of them. To calculate the UTC time
+for the meeting, it needs to know the offset from UTC in Europe/Vienna
+on March 13, 2025; and that means applying the recurrence rules for
+standard and daylight time in this time zone.
+
+In other words, because local times in iCalendar data are /only/ given
+a reference to a time zone, not a UTC offset, and because a time zone
+/only/ determines such offsets by means of recurrence rules,
+recurrence rules are essential to the semantics of date-times in
+iCalendar. Even if you never have any repeating appointments, the
+annual recurrences of time zone observance transitions play a role in
+determining the UTC times of your appointments. Thus, any iCalendar
+implementation needs to handle recurrence rules just to be able to
+interpret local times. Once you can do that, repeating events pretty
+much come for free.
+
+Fortunately, Emacs already has a lot of functions for calendar-related
+arithmetic, so most of the low-level calculations needed for applying
+recurrence rules were relatively easy to express. The challenge was to
+design the whole system so that computing recurrences could be done
+efficiently, on demand.
+
+* False starts
+
+It took me quite a long time to get this implementation working, and I
+explored a number of possibilities that turned out to be dead ends
+before I finally landed on a solution that was both correct and
+efficient.
+
+The first problem was with the standard itself. RFC5545 describes
+recurrence rule calculations in terms of a process which iteratively
+"expands" and "limits" a recurrence "set" based on the clauses in the
+rule. A recurrence "set" is easy enough to understand: it's the set of
+repetitions of an event defined by the rule. But this set is
+(potentially) infinite in general; we can only ever compute parts of
+it. And the language describing these computations in RFC5545 is
+vague, and therefore difficult to turn into a working implementation.
+I did not succeed in doing so, and ended up deleting much of the code
+from this first attempt. It seems like other implementations had
+problems with this too, because they don't necessarily agree in their
+interpretations: different implementations compute different
+recurrence sets for the same rule.
+
+Fortunately, [[https://www.rfc-editor.org/rfc/rfc8984.html][RFC8984]] (JSCalendar) is a forthcoming standard which
+attempts to resolve the ambiguities while being semantically
+backward-compatible with RFC5545. It provides a much cleaner
+conceptual model for recurrence calculations: the recurrence set is
+generated by starting with a list of candidates, which consist of
+every second in a certain interval of time, and then filtering out any
+candidates which do not match the rule's clauses. After learning about
+this, I decided to base my implementation of recurrence rules on
+RFC8984 rather than RFC5545.
+
+The most straightforward implementation of the RFC8984 model, however,
+is unusably slow in some important cases, such as calculating the
+onset of daylight savings time in a given year. In this case, the
+interval is a year long, so it consists of over 31 million seconds.
+Although it's easy to generate a sequence of each of those seconds,
+filtering them through the various clauses of the rule means means
+doing a fairly expensive computation over 31 million times, and then
+throwing away the result in all but one case. When I implemented this
+model, I was not patient enough to sit through these calculations,
+which would have taken minutes to hours on my laptop. That was my
+second false start.
+
+* Intervals and subintervals
+
+One insight that I had early on was that the fundamental "atoms" of
+recurrence rule computations are what I called /intervals/, which are
+periods of time of a fixed length determined by the rule. A recurrence
+rule has two parts which determine intervals: a =FREQ= clause,
+whose value is something like =YEARLY= or =MONTHLY=, and an =INTERVAL=
+part (the source of the name), whose value is a positive integer. An
+interval is a period of time whose bounds must fall at successive
+integer multiples of the product of the recurrence rule's =FREQ= and
+=INTERVAL= values, relative to a starting date-time. For example, a
+recurrence rule with a =MONTHLY= frequency and =INTERVAL=3= will have
+intervals that are three months long; this is iCalendar's way of
+expressing the idea of "every three months". If its start date is,
+e.g., in November, then the first interval runs from November to
+February, the next from February to May, and so on.
+
+An interval is an "atom" in the sense that it is the smallest unit of
+time for which it is possible to compute values of the recurrence set.
+This is because one of the possible rule clauses, =BYSETPOS=, filters
+the recurrences by their numerical index within an interval. For this
+reason, all computations of some part of a recurrences set have to
+compute them in one or more intervals.
+
+Thinking in intervals led me to a second insight: because intervals
+depend only on the starting date/time, the frequency, and the interval
+length, it is relatively straightforward to compute the bounds of the
+interval surrounding an arbitrary point in time (which I call a
+"target"). This means that it is possible to compute /parts/ of the
+recurrence set which occur arbitrarily far into the future without
+enumerating the whole set from the beginning (which would be very
+inefficient). You first compute the interval around the target, then
+compute the recurrences in the interval.
+
+Things finally started to cohere when I realized that I should think
+of an "interval" not as a set of successive seconds (as RFC8984 does),
+but as defined by its /bounds/, and I could think of the clauses in a
+rule as successively "refining" a given interval into subintervals,
+each likewise defined by their bounds.
+
+For example, in a =YEARLY= rule with =INTERVAL=1= (the default), the
+intervals are each one year long. Suppose we want the recurrences in
+the interval around a target of April 1, 2025. We start by computing
+the relevant interval, which starts at midnight on January 1 2025, and
+ends one year later. If the rule has a =BYMONTH=4,10= clause, then we
+can refine this interval into two subintervals, each one month long:
+one for April 2025 and one for October 2025. We can then further
+refine these subintervals in the same way for all the other clauses in
+the rule. Finally, to turn the final set of subintervals into a set of
+recurrences, we generate a date-time for each successive second in all
+the subintervals. (In practice, because the standard defines implicit
+rule clauses based on the values in the starting date-time, each of
+the final subintervals is exactly one second long.)
+
+This process is much more efficient in the typical case than the
+algorithm described by RFC8984, because the number of bounds which
+describe the final set of subintervals is usually /much/ smaller than
+the number of seconds in the original interval. Representing intervals
+and subintervals in terms of their bounds turned out to be the key to
+making recurrence rule calculations efficient enough to be usable.
+
+* Memoizing recurrences
+
+I found, though, that while computing individual recurrences was now
+reasonably quick, my test cases (which were taken from the examples in
+RFC5545 [[https://www.rfc-editor.org/rfc/rfc5545#section-3.8.5.3][section 3.8.5.3]]) still took uncomfortably long to run, and
+made the write-test-debug cycle too slow. This was because computing
+the recurrences of an event with time zone information still ran a lot
+of recurrence rule calculations, often repeatedly. For example,
+computing two different recurrences of an event which fall in the same
+time zone observance requires computing the relevant time zone
+observance recurrence for each of the subinterval bounds describing
+these recurrences. This is an expensive computation, and the results
+are in most cases the same, so it doesn't make sense to repeat it so
+many times.
+
+I thus decided to memoize the computations of recurrences. Once the
+code computes the recurrences of an event in a certain interval, it
+caches the result in a per-event hash table which maps that interval
+to those recurrences. Subsequent calls to this code for the same
+interval just return the pre-computed recurrences from the hash table.
+This sped things up considerably. Once I had memoization working, the
+tests finally ran fast enough that I could finish debugging and
+cleaning up the rest of the implementation.
+
+* What's next
+
+It was a long road to get here: I worked on this implementation of
+recurrence rules almost every day for several hours for about three
+months, and there were times along the way when I thought the bugs and
+edge cases would never end. I'm sure that plenty of bugs remain, but
+my implementation now demonstrably does the right thing for all of the
+examples in the text of RFC5545, and I'm proud that I've gotten to
+this point.
+
+With this implementation it's now possible, for the first time in
+Emacs, to compute the UTC times and the recurrences of events
+expressed in RFC5545 format. This means it's possible to display these
+events in the user's local time, and order them with respect to other
+events, which is important for the diary and for org-agenda. I'll be
+working on diary integration as the next step, since that's the focus
+of Emacs' existing icalendar.el code.

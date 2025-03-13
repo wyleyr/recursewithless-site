@@ -1,5 +1,9 @@
 title: recursewithless.net
 references:
+- title: "Improving Emacs' iCalendar support, Part 3: recurrence rules"
+  issued: 2025-03-13
+  URL: https://recursewithless.net/emacs/icalendar-recurrences.html
+  abstract: Adding support for recurrence rules in my iCalendar implementation
 - title: "Improving Emacs' iCalendar support, Part 2: a real parser!"
   issued: 2024-11-26
   URL: https://recursewithless.net/emacs/icalendar-parser2.html
